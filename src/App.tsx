@@ -1,7 +1,15 @@
 import { useState } from 'react'
 import './css/App.css'
 
-import { Textarea, Label, Divider, Button } from '@digdir/designsystemet-react';
+import {
+  //Heading,
+  Textarea,
+  Button,
+  Skeleton,
+  Label,
+  //Alert,
+  Divider
+} from '@digdir/designsystemet-react' 
 import logo from './assets/logo.png';
 
 function ChatUI() {
@@ -22,7 +30,7 @@ function ChatUI() {
         { sender: 'bot', text: 'Dette er et simulert svar fra desKI 🤖' },
       ]);
       setLoading(false);
-    }, 700);
+    }, 1000);
     // TODO: 
     // Erstatt dette med eit faktisk API-kall når du er klar
     // Det må naturlegvis tilpassast til ditt API-endepunkt og datamodell.
@@ -65,9 +73,11 @@ function ChatUI() {
       </div>
       <Divider />
       <Label>Send melding</Label>
-      {loading && <div>Venter på svar...</div>}
+      {loading && <div><Skeleton variant='text' width={20}>Venter på svar...</Skeleton></div>}
       <Textarea value={value} onChange={(e) => setValue(e.target.value)} />
-      <Button onClick={handleSubmit}>Send</Button>
+      <Button onClick={handleSubmit}>
+        <Skeleton variant='text'>Send</Skeleton> 
+      </Button>
     </div>
   );
 }
