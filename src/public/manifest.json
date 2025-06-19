@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "desKI",
+    "description": "A Chrome extension to enhance your browsing experience with AI capabilities.",
+    "version": "1.0.0",
+    "action": { 
+        "default_popup": "index.html",
+        "default_title": "Open desKI"
+    },
+    "permissions": [
+        "scripting"
+    ]
+}
