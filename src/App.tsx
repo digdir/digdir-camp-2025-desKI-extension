@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './css/App.css'
 
 import { Textarea, Label, Divider, Button } from '@digdir/designsystemet-react';
-import logo from './assets/logo.png';
+import logo from '../public/assets/logo.png';
 
 function ChatUI() {
   const [value, setValue] = useState('');

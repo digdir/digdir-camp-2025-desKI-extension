@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "desKI",
+    "description": "A Chrome extension to enhance your browsing experience with AI capabilities.",
+    "version": "1.0.2",
+    "action": { 
+        "default_popup": "index.html",
+        "default_title": "Open desKI",
+        "default_icon": {
+      "16": "assets/icon16.png",
+      "32": "assets/icon32.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+    },
+     "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png" 
+  },
+    "permissions": [
+        "scripting"
+    ]
+}
