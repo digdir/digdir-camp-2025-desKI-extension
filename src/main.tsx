@@ -8,7 +8,9 @@ import App from './App.tsx'
 import '@digdir/designsystemet-theme';
 import '@digdir/designsystemet-css';
 
-
+/*
+    * Main entry point for the React application.
+ */
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
