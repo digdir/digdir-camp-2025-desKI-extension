@@ -1,10 +1,10 @@
-/* 
-This file should contain common styles that are shared across multiple components.
-*/
+/* Body styles */
 body {
   font-family: 'Inter', sans-serif;
   font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
 }
+
+/* Base styles for root element and typography */
 :root {
   font-family: 'Inter', sans-serif;
   font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
@@ -21,15 +21,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Global styles for links and buttons */
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
+/* Hover effect for links */
 a:hover {
   color: #535bf2;
 }
 
+/* Global styles for the body */
 body {
   margin: 0;
   display: flex;
@@ -38,11 +42,13 @@ body {
   min-height: 100vh;
 }
 
+/* Global styles for headings */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Button styles */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,14 +60,19 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+/* Button hover styles */
 button:hover {
   border-color: #646cff;
 }
+
+/* Button focus styles */
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Light mode overrides */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
