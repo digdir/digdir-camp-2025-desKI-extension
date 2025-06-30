@@ -4,12 +4,20 @@ import './css/App.css'
 import { Textarea, Label, Divider, Button } from '@digdir/designsystemet-react';
 import logo from '../public/assets/logo.png';
 
+/*
+    * ChatUI component that provides a simple chat interface.
+ */
 function ChatUI() {
   const [value, setValue] = useState('');
   const [messages, setMessages] = useState<{ sender: 'user' | 'bot'; text: string }[]>([]);
   const [loading, setLoading] = useState(false);
 
-
+/*
+    * Handles the submission of a message.
+    * If the input is empty, it does nothing.
+    * Otherwise, it adds the user's message to the chat,
+    * simulates a bot response after a delay, and resets the input field.
+ */
   const handleSubmit = async () => {
     if (!value.trim()) return;
 
@@ -51,6 +59,12 @@ function ChatUI() {
 
   };
 
+  /*
+    * The main container for the chat interface.
+    * It includes a chat window to display messages,
+    * a text area for user input, and a button to send messages.
+    * The chat window displays messages from both the user and the bot.
+   */
   return (
     <div className='chat-container'>
       <div className='chat-window'>
@@ -71,8 +85,15 @@ function ChatUI() {
     </div>
   );
 }
+
+/*
+    * Main application component that renders the chat interface.
+ */
 function App() {
 
+    /*
+    * The main container for the application.
+     */
   return (
     <>
       <div>
@@ -83,4 +104,7 @@ function App() {
   );
 }
 
+/*
+    * Exporting the main application component.
+ */
 export default App;
