@@ -1,3 +1,4 @@
+/* Root container for the application */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,28 +6,34 @@
   text-align: center;
 }
 
+/* Logo hover effects */
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
+/* Logo hover effect for React */
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Generic card styles */
 .card {
   padding: 2em;
 }
 
+/* Text style for documentation links */
 .read-the-docs {
   color: #888;
 }
 
+/* Base body styles */
 body {
   font-family: 'Inter', sans-serif;
   font-feature-settings: 'cv05' 1;
   /* Enable lowercase l with tail */
 }
 
+/* Container for the chat interface */
 .chat-container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -35,6 +42,7 @@ body {
   gap: 1rem;
 }
 
+/* Chat window box that holds messages */
 .chat-window {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -47,6 +55,7 @@ body {
   gap: 0.5rem;
 }
 
+/* Input area for user messages */
 .message-user {
   align-self: flex-end;
   background: #0056b4;
@@ -57,6 +66,7 @@ body {
   white-space: pre-wrap;
 }
 
+/* Message bubble for bot responses */
 .message-bot {
   align-self: flex-start;
   background: #e3e3e3;
