@@ -1,4 +1,4 @@
-import StartMenu from './pages/startMenu';
+import StartMenu from './pages/startPage';
 
 function App() {
 
