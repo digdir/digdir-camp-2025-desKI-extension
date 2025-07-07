@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './css/common.css'
+import '../src/css/index.css' 
 import App from './App.tsx'
 
 // Importing designsystemet here and only here
