@@ -1,10 +1,17 @@
-import StartMenu from './pages/startPage';
+import StartPage from './pages/startPage';
+import { GridMenu } from './pages/gridMenu';
+import {BrowserRouter,Route, Routes} from 'react-router-dom';
 
 function App() {
 
   return (
     <div>
-      <StartMenu />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/grid" element={<GridMenu />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
