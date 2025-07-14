@@ -1,4 +1,4 @@
-import StartPage from '../src/pages/StartPage';
+import { StartPage } from '../src/pages/StartPage';
 import ChatPage from "../src/pages/ChatPage";
 import { GridMenu } from '../src/pages/GridMenu';
 import {BrowserRouter,Route, Routes} from 'react-router-dom';
