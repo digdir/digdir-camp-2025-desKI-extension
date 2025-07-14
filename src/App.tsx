@@ -1,18 +1,18 @@
-import StartPage from './pages/startPage';
-import { GridMenu } from './pages/gridMenu';
+import StartPage from '../src/pages/StartPage';
+import ChatPage from "../src/pages/ChatPage";
+import { GridMenu } from '../src/pages/GridMenu';
 import {BrowserRouter,Route, Routes} from 'react-router-dom';
 
 function App() {
 
   return (
-    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/grid" element={<GridMenu />} />
+          <Route path="/:slug" element={<ChatPage />} />
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

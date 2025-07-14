@@ -1,26 +1,15 @@
-import { Card } from '@digdir/designsystemet-react';
+import Grid from "../components/grid";
+import { solutions } from "../data/solutions";
 
-/**
- * Displays the initial landing page where users choose a solution to get help with.
- * Clicking a card routes to the chatbot page with the selected solution.
- */
 export function GridMenu() {
   return (
-    <div >
-      <div>
-       
-        <h2 >
-          Hei, hvilken løsning vil du ha hjelp med i dag?
-        </h2>
-      </div>
-      <div >
-            <Card variant="tinted">
-              <h3 >Løsning 1</h3>
-              <p >
-                Beskrivelse av løsning 1.
-              </p>
-            </Card>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
+      <h2 className="text-xl font-semibold mb-6">
+        Hei, hvilken løsning vil du ha hjelp med i dag?
+      </h2>
+     
+        <Grid solutions={solutions} />
+     
     </div>
   );
 }
