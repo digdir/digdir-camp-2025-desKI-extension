@@ -8,7 +8,7 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<StartPage />} />
+          <Route path="/" element={<GridMenu />} />
           <Route path="/grid" element={<GridMenu />} />
           <Route path="/:slug" element={<ChatPage />} />
         </Routes>
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
