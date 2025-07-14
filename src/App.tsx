@@ -8,7 +8,7 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<GridMenu />} />
+          <Route path="/" element={<StartPage />} />
           <Route path="/grid" element={<GridMenu />} />
           <Route path="/:slug" element={<ChatPage />} />
         </Routes>
