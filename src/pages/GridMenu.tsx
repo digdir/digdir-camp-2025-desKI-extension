@@ -7,8 +7,9 @@ export function GridMenu() {
       <h2 className="text-xl font-semibold mb-6">
         Hei, hvilken løsning vil du ha hjelp med i dag?
       </h2>
-     
+      <div className="max-w-[600px] mx-auto p-4">
         <Grid solutions={solutions} />
+      </div>
      
     </div>
   );

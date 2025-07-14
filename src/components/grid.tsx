@@ -16,7 +16,7 @@ export default function Grid({ solutions }: GridProps) {
           <Link to={path} key={title}>
             <Card
               variant="tinted"
-              className="w-[220px] h-[145px] flex items-center justify-center text-center rounded-md border transition-colors duration-200 bg-[var(--ds-color-warning-surface-tinted)] border-[var(--ds-color-warning-border-subtle)] hover:bg-[var(--ds-color-warning-surface-hover)] hover:border-[var(--ds-color-warning-base-default)]"
+              className="w-[160px] h-[145px] flex items-center justify-center text-center rounded-md border transition-colors duration-200 bg-[var(--ds-color-warning-surface-tinted)] border-[var(--ds-color-warning-border-subtle)] hover:bg-[var(--ds-color-warning-surface-hover)] hover:border-[var(--ds-color-warning-base-default)]"
             >
               <Card.Block>
                 <h3 className="text-[13px] font-semibold leading-snug text-center px-2 text-[var(--ds-color-text-default)]">
