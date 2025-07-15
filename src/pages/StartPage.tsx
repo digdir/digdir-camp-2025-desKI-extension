@@ -5,7 +5,7 @@ export function StartPage() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-[#f2f3f5] px-6 py-10">
 
-      {/* Placeholder for top-right toggles */}
+      {/* Top-right toggles */}
       <div className="w-full flex justify-end space-x-2 mb-6">
       <button
         aria-label="Toggle dark mode"
