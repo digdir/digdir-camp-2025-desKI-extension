@@ -25,7 +25,7 @@ export function StartPage() {
       <img
         src={logoLight}
         alt="desKI logo"
-        className="mb-10 w-40 md:w-56 lg:w-64"
+        className="mb-10 w-48 md:w-64 lg:w-72"
       />
 
       {/* Question text */}
