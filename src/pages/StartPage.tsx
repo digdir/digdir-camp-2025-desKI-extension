@@ -1,4 +1,4 @@
-import { InputField } from "../components/InputFiled";
+import { InputField } from "../components/InputField";
 
 function StartPage() {
   return (
