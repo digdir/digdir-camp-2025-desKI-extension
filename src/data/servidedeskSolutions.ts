@@ -1,4 +1,4 @@
-export const solutions = [
+export const servicedeskSolutions = [
   'ID-porten',
   'Maskinporten',
   'eFormidling',
