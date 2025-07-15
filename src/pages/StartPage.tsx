@@ -1,5 +1,4 @@
 import { logoLight } from "../assets";
-import { Moon, Globe } from "lucide-react";
 
 export function StartPage() {
   return (
@@ -11,13 +10,13 @@ export function StartPage() {
         aria-label="Toggle dark mode"
         className="p-2 rounded-md hover:bg-gray-200 transition"
       >
-        <Moon className="w-6 h-6 text-gray-700" />
+        {/* <Moon className="w-6 h-6 text-gray-700" /> */}
       </button>
       <button
         aria-label="Change language"
         className="p-2 rounded-md hover:bg-gray-200 transition"
       >
-        <Globe className="w-6 h-6 text-gray-700" />
+        {/* <Globe className="w-6 h-6 text-gray-700" /> */}
       </button>
     </div>
 
