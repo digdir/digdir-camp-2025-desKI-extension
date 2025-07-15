@@ -1,4 +1,4 @@
-import Grid from "../components/Prid";
+import Grid from "../components/Grid";
 import { solutions } from "../data/solutions";
 
 export function GridMenu() {
