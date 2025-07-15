@@ -1,14 +1,25 @@
 import { logoLight } from "../assets";
+import { Moon, Globe } from "lucide-react";
 
 export function StartPage() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-[#f2f3f5] px-6 py-10">
 
       {/* Placeholder for top-right toggles */}
-      <div className="w-full flex justify-end space-x-4 mb-6">
-        <button aria-label="Toggle dark mode" className="p-2 rounded-md hover:bg-gray-300 transition">🌙</button>
-        <button aria-label="Change language" className="p-2 rounded-md hover:bg-gray-300 transition">🌍</button>
-      </div>
+      <div className="w-full flex justify-end space-x-2 mb-6">
+      <button
+        aria-label="Toggle dark mode"
+        className="p-2 rounded-md hover:bg-gray-200 transition"
+      >
+        <Moon className="w-6 h-6 text-gray-700" />
+      </button>
+      <button
+        aria-label="Change language"
+        className="p-2 rounded-md hover:bg-gray-200 transition"
+      >
+        <Globe className="w-6 h-6 text-gray-700" />
+      </button>
+    </div>
 
       {/* Logo */}
       <img
