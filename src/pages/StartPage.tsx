@@ -1,4 +1,4 @@
-function StartMenu() {
+function StartPage() {
   return (
     <div>
       <h1>Welcome to the Start Menu</h1>
@@ -6,4 +6,4 @@ function StartMenu() {
   );
 }
 
-export default StartMenu;
+export default StartPage;

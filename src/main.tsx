@@ -1,10 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '../src/css/index.css' 
-import App from './App.tsx'
+import "./styles/common.css"
 
-// Importing designsystemet here and only here
-// Import local styles as needed
+import App from '../src/App';
+import "../src/css/index.css";
 import '@digdir/designsystemet-theme';
 import '@digdir/designsystemet-css';
 
