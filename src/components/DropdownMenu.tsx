@@ -14,7 +14,7 @@ export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
   const location = useLocation();
 
   // Hent siste del av URL-en
-  const currentSlug = location.pathname.split('/').filter(Boolean).at(-1) ?? '';
+  const currentSlug = location.pathname.split('/').filter(Boolean).slice(-1)[0] ?? '';
 
   // Finn løsning som matcher slug-en
   const selected = useMemo(() => {
