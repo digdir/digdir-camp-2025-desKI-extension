@@ -1,4 +1,4 @@
-import Grid from "../components/grid";
+import Grid from "../components/Grid";
 import { solutions } from "../data/solutions";
 
 export function GridMenu() {
@@ -10,7 +10,6 @@ export function GridMenu() {
       <div className="max-w-[600px] mx-auto p-4">
         <Grid solutions={solutions} />
       </div>
-     
     </div>
   );
 }

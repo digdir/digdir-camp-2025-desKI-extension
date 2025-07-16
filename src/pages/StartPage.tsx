@@ -29,5 +29,6 @@ export function StartPage() {
         </button>
       </div>
     </div>
+
   );
 };
