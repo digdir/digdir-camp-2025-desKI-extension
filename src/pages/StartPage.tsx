@@ -1,6 +1,6 @@
 import { UtilityBar } from "../components/UtilityBar";
 import { Logo } from "../components/Logo";
-import { ActionButton } from "../components/actionButton";
+import { ActionButton } from "../components/ActionButton";
 import { useNavigate } from "react-router-dom";
 
 export function StartPage() {
