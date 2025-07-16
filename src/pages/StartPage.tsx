@@ -1,5 +1,5 @@
-import { UtilityBar } from "../components/utilityBar";
-import { Logo } from "../components/logo";
+import { UtilityBar } from "../components/UtilityBar";
+import { Logo } from "../components/Logo";
 
 export function StartPage() {
   return (

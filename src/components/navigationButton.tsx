@@ -1,10 +1,10 @@
-interface ActionButtonProps {
+interface NavigationButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
 }
 
-export function ActionButton({ children, onClick, className = '' }: ActionButtonProps) {
+export function NavigationButton({ children, onClick, className = '' }: NavigationButtonProps) {
   return (
     <button
       onClick={onClick}
