@@ -1,6 +1,6 @@
 import { Button } from '@digdir/designsystemet-react';
 import { EarthIcon } from '@navikt/aksel-icons';
-import ColorModeSwitch from './colorModeSwitch';
+import ColorModeSwitch from './ColorModeSwitch';
 
 export function UtilityBar() {
   return (
