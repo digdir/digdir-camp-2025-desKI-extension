@@ -8,7 +8,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/grid" element={<GridMenu />} />
+        <Route path="/grid/:slug" element={<GridMenu />} />
         <Route path="/chat/:slug" element={<ChatPage />} />
       </Routes>
     </HashRouter>

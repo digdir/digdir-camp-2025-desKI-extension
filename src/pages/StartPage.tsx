@@ -1,16 +1,13 @@
 import { UtilityBar } from "../components/UtilityBar";
 import { Logo } from "../components/Logo";
-import { ActionButton } from "../components/ActionButton";
+import { ActionButton } from "../components/actionButton";
+import { useNavigate } from "react-router-dom";
 
 export function StartPage() {
-  const handleServicedeskClick = () => {
-    console.log('Navigating to Servicedesk');
-    // Add your navigation logic here
-  };
+  const navigate = useNavigate();
 
-  const handleBrukerstotteClick = () => {
-    console.log('Navigating to Brukerstøtte');
-    // Add your navigation logic here
+  const handleGridNavigate = (section: string) => {
+    navigate(`/grid/${section}`);
   };
 
   return (
@@ -30,12 +27,12 @@ export function StartPage() {
       <div className="flex flex-col gap-5 w-full max-w-md">
         <ActionButton
           label="Servicedesk"
-          onClick={handleServicedeskClick}
+          onClick={() => handleGridNavigate('servicedesk')}
         />
 
         <ActionButton
           label="Brukerstøtte"
-          onClick={handleBrukerstotteClick}
+          onClick={() => handleGridNavigate('brukerstotte')}
         />
       </div>
     </div>
