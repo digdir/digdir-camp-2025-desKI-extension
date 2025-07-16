@@ -1,5 +1,5 @@
 import { UtilityBar } from "../components/utilityBar";
-import { logoLight } from "../assets";
+import { Logo } from "../components/logo";
 
 export function StartPage() {
   return (
@@ -9,11 +9,7 @@ export function StartPage() {
       <UtilityBar />
 
       {/* Logo */}
-      <img
-        src={logoLight}
-        alt="desKI logo"
-        className="mb-10 w-48 md:w-64 lg:w-72"
-      />
+      <Logo />
 
       {/* Question text */}
       <h1 className="text-center text-[#152f5d] font-roboto text-lg md:text-xl mb-14 leading-snug">
