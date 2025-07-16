@@ -1,3 +1,3 @@
 import logoLight from './logos/LogoLight.svg';
-
-export { logoLight };
+import logoDark from './logos/LogoLight.svg';
+export { logoLight, logoDark };
