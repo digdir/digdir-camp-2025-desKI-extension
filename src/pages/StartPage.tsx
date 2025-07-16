@@ -1,4 +1,4 @@
-import { UtilityBar } from "src/components/utilityBar";
+import { UtilityBar } from "../components/utilityBar";
 import { logoLight } from "../assets";
 
 export function StartPage() {
