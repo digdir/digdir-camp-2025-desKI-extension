@@ -1,13 +1,16 @@
 import { Button } from '@digdir/designsystemet-react';
 import { EarthIcon } from '@navikt/aksel-icons';
 import ColorModeSwitch from './ColorModeSwitch';
-import LanguageDropdown from './LanguageDropDown';
 
 export function UtilityBar() {
   return (
-    <div className="fixed top-0 right-0 flex items-center justify-center p-4 pr-6 z-[100]">
+    <div className="w-full flex justify-end mb-6 gap-1">
+
       <ColorModeSwitch />
-      <LanguageDropdown />
+
+      <Button className='bg-transparent text-current p-0 text-xl hover:bg-neutral-200 hover:text-current cursor-pointer outline-none border-none focus:outline-none focus:border-none active:outline-none active:border-none'>
+        <EarthIcon />
+      </Button>
     </div>
   );
 }

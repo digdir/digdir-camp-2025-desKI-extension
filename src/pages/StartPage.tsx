@@ -1,10 +1,20 @@
 import { UtilityBar } from "../components/UtilityBar";
 import { Logo } from "../components/Logo";
+import { ActionButton } from "../components/ActionButton";
 
 export function StartPage() {
+  const handleServicedeskClick = () => {
+    console.log('Navigating to Servicedesk');
+    // Add your navigation logic here
+  };
+
+  const handleBrukerstotteClick = () => {
+    console.log('Navigating to Brukerstøtte');
+    // Add your navigation logic here
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center bg-[#f2f3f5] px-6 py-10">
-
       {/* Utility Bar */}
       <UtilityBar />
 
@@ -16,19 +26,18 @@ export function StartPage() {
         Hva kan jeg hjelpe deg med i dag?
       </h1>
 
-      {/* Buttons */}
+      {/* Navigation Buttons */}
       <div className="flex flex-col gap-5 w-full max-w-md">
-        <button className="bg-[#f6d5a0] flex items-center justify-between px-6 py-3 rounded-full text-black font-medium shadow-md hover:bg-[#e4b870] transition">
-          <span>Servicedesk</span>
-          <span className="text-xl font-bold">→</span>
-        </button>
+        <ActionButton
+          label="Servicedesk"
+          onClick={handleServicedeskClick}
+        />
 
-        <button className="bg-[#f6d5a0] flex items-center justify-between px-6 py-3 rounded-full text-black font-medium shadow-md hover:bg-[#e4b870] transition">
-          <span>Brukerstøtte</span>
-          <span className="text-xl font-bold">→</span>
-        </button>
+        <ActionButton
+          label="Brukerstøtte"
+          onClick={handleBrukerstotteClick}
+        />
       </div>
     </div>
-
   );
-};
+}
