@@ -1,4 +1,4 @@
-import { logoLight, logoDark } from '../assets';
+import {logoLight} from '../assets';
 
 export function Logo() {
   return (
