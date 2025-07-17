@@ -1,14 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import StartPage from '../src/pages/StartPage';
-import ChatPage from '../src/pages/ChatPage';
-import { GridMenu } from '../src/pages/GridMenu';
+import StartPage from './pages/StartPage';
+import { GridMenu } from './pages/GridMenu';
+import Chat from './pages/ChatPage';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<StartPage />} />
-      <Route path="/grid" element={<GridMenu />} />
-      <Route path="/:slug" element={<ChatPage />} />
+      <Route path="/brukerstøtte" element={<GridMenu />} />
+      <Route path="/servicedesk" element={<GridMenu />} />
+      <Route path="/brukerstøtte/:slug" element={<Chat />} />
+      <Route path="/servicedesk/:slug" element={<Chat />} />
     </Routes>
   );
 }

@@ -4,6 +4,7 @@ import { slugify } from '../utils/slugify';
 
 type GridProps = {
   solutions: string[];
+  basePath: string;
 };
 
 export default function Grid({ solutions }: GridProps) {
