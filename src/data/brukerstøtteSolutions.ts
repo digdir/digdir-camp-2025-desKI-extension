@@ -1,4 +1,5 @@
 export const brukerstøtteSolutions =[
+    "Anna",
     "BankId",
     "Digital postkasse",
     "eSignering",

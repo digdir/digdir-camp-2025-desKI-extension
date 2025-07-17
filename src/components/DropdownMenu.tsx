@@ -28,29 +28,33 @@ export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
   };
 
   return (
-    <Dropdown.TriggerContext>
-      <Dropdown.Trigger
-        onClick={() => setOpen(!open)}
-        className="mt-6 bg-transparent border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] rounded px-3 py-2 flex items-center gap-2"
-      >
-        {selected ?? 'Velg løsning'}
-        <ChevronDownIcon aria-hidden />
-      </Dropdown.Trigger>
+    <div className="relative w-full max-w-xs mx-auto">
+  <Dropdown.TriggerContext>
+    <Dropdown.Trigger
+      onClick={() => setOpen(!open)}
+      className="w-full mt-6 bg-transparent border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] rounded px-3 py-2 flex items-center justify-between gap-2"
+    >
+      {selected ?? 'Velg løsning'}
+      <ChevronDownIcon aria-hidden />
+    </Dropdown.Trigger>
 
-      <Dropdown open={open} onClose={() => setOpen(false)}>
-        <Dropdown.List>
-          {solutions.map((solution) => (
-            <Dropdown.Button
-              key={solution}
-              onClick={() => handleSelect(solution)}
-              className="border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] px-4 py-2 w-full text-left"
-            >
-              {solution}
-            </Dropdown.Button>
-          ))}
-        </Dropdown.List>
-      </Dropdown>
-    </Dropdown.TriggerContext>
+    <Dropdown open={open} onClose={() => setOpen(false)}>
+      <Dropdown.List className="w-full max-h-60 overflow-y-auto shadow-lg rounded-md bg-white z-50">
+        {solutions.map((solution) => (
+          <Dropdown.Button
+            key={solution}
+            onClick={() => handleSelect(solution)}
+            className="px-4 py-2 w-full text-left hover:bg-[var(--ds-color-neutral-surface-hover)]"
+          >
+            {solution}
+          </Dropdown.Button>
+        ))}
+      </Dropdown.List>
+    </Dropdown>
+  </Dropdown.TriggerContext>
+</div>
+
+
   );
 };
 
