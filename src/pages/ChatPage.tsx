@@ -1,5 +1,5 @@
 import { DropDownMenu } from "../components/DropdownMenu";
-import { servicedeskSolutions } from "../data/servidedeskSolutions";
+import { servicedeskSolutions } from "../data/servicedeskSolutions";
 import { UtilityBar } from "../components/UtilityBar";
 function Chat() {
   return (
