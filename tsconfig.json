@@ -1,7 +1,8 @@
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "types": ["chrome"]
   },
-  "include": ["src", "vite.config.ts", "design-tokens-build"]
+  "include": ["src", "vite.config.ts", "design-tokens-build", "src/background/background.js", "src/content/content.js"]
 }
