@@ -1,5 +1,5 @@
 import Grid from "../components/Grid";
-import { solutions } from "../data/solutions";
+import { servicedeskSolutions } from "../data/servidedeskSolutions";
 
 export function GridMenu() {
   return (
@@ -8,7 +8,7 @@ export function GridMenu() {
         Hei, hvilken løsning vil du ha hjelp med i dag?
       </h2>
       <div className="max-w-[600px] mx-auto p-4">
-        <Grid solutions={solutions} />
+        <Grid solutions={servicedeskSolutions} />
       </div>
      
     </div>

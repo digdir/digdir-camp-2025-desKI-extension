@@ -1,9 +1,20 @@
 {
   "manifest_version": 3,
+  "name": "desKI Chat Widget",
   "version": "1.0",
-  "name": "React Chrome Extension",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
   "action": {
-    "default_popup": "index.html",
-    "default_title": "Åpne Extension"
-  }
+    "default_title": "Åpne desKI"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
