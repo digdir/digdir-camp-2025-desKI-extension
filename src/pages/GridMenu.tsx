@@ -1,6 +1,6 @@
 import Grid from "../components/Grid";
 import { brukerstøtteSolutions } from "../data/brukerstøtteSolutions";
-import { servicedeskSolutions } from "../data/servidedeskSolutions";
+import { servicedeskSolutions } from "../data/servicedeskSolutions";
 import { useLocation } from "react-router-dom";
 
 export function GridMenu() {
