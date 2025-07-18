@@ -8,17 +8,21 @@ type NavigationButtonProps = {
   className?: string;
 };
 
-export function NavigationButton({ label, to, icon, className }: NavigationButtonProps) {
+ export function NavigationButton({ label, to, icon, className }: NavigationButtonProps) {
   const navigate = useNavigate();
 
   return (
     <button
       onClick={() => navigate(to)}
-      className={`w-full bg-[#FCD48A] text-[#1E2B3C] font-medium px-4 py-3 rounded-full shadow-sm hover:bg-[#f9c76a] transition flex items-center justify-between ${className || ''}`}
+      className={`w-full text-[var(--ds-color-text-default)] font-medium px-4 py-3 rounded-full shadow-sm 
+        bg-[var(--ds-color-warning-surface-tinted)] 
+        border border-[var(--ds-color-warning-border-subtle)]
+        hover:bg-[var(--ds-color-warning-surface-hover)] 
+        hover:border-[var(--ds-color-warning-base-default)] 
+        transition flex items-center justify-between ${className || ''}`}
     >
       <span>{label}</span>
       {icon ?? <ArrowRightIcon className="w-5 h-5" />}
     </button>
   );
 }
-

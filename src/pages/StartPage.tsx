@@ -9,7 +9,7 @@ export default function StartPage() {
 
       <div className="mt-16 w-full flex flex-col items-center">
         <div className="w-[80%] max-w-md text-center">
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-8">
             <Logo />
           </div>
 
