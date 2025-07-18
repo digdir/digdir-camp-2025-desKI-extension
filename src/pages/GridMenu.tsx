@@ -2,12 +2,14 @@ import Grid from "../components/Grid";
 import { brukerstøtteSolutions } from "../data/brukerstøtteSolutions";
 import { servicedeskSolutions } from "../data/servicedeskSolutions";
 import { useLocation } from "react-router-dom";
+import { Logo } from '../components/Logo';
+import { UtilityBar } from '../components/UtilityBar';
 
 export function GridMenu() {
   const location = useLocation();
   const pathname = location.pathname;
 
-  //check the current path to determine if it's for servicedesk or brukerstøtte
+  // Determine context based on URL
   const isServicedesk = pathname.startsWith("/servicedesk");
   const title = isServicedesk ? "Servicedesk" : "Brukerstøtte";
   const basePath = isServicedesk ? "/servicedesk" : "/brukerstøtte";
@@ -15,10 +17,17 @@ export function GridMenu() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
-      <h1 className="text-xl font-semibold mb-6">
-        Hei, hva kan jeg hjelpe deg med i dag?
-      </h1>
-      <div className="max-w-[600px] mx-auto p-4">
+      <UtilityBar />
+
+      <div className="flex flex-col items-center mt-14 mb-10">
+          <Logo />
+        <span className="text-xs sm:text-sm font-medium text-[var(--ds-color-text-default)] ml-28">
+          {title}
+        </span>
+      </div>
+
+
+      <div className="max-w-[600px] mx-auto">
         <Grid solutions={solutions} basePath={basePath} />
       </div>
     </div>

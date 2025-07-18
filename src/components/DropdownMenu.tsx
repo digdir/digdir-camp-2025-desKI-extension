@@ -32,7 +32,7 @@ export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
   <Dropdown.TriggerContext>
     <Dropdown.Trigger
       onClick={() => setOpen(!open)}
-      className="w-full mt-6 bg-transparent border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] rounded px-3 py-2 flex items-center justify-between gap-2"
+      className="w-full mt-2 bg-transparent border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] rounded px-3 py-2 flex items-center justify-between gap-2"
     >
       {selected ?? 'Velg løsning'}
       <ChevronDownIcon aria-hidden />

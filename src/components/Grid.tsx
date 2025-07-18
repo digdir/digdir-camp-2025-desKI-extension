@@ -7,28 +7,26 @@ type GridProps = {
   basePath: string;
 };
 
-export default function Grid({ solutions }: GridProps) {
+export default function Grid({ solutions, basePath }: GridProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-2xl mx-auto px-4 py-10">
+    <div className="grid grid-cols-3 lg:grid-cols-4 gap-3 w-full px-1 py-2 scale-[0.80] origin-top">
       {solutions.map((title) => {
-        const path = `/${slugify(title)}`;
+        const path = `${basePath}/${slugify(title)}`;
 
         return (
           <Link to={path} key={title}>
             <Card
               variant="tinted"
-              className="w-[160px] h-[145px] flex items-center justify-center text-center rounded-md border transition-colors duration-200 bg-[var(--ds-color-warning-surface-tinted)] border-[var(--ds-color-warning-border-subtle)] hover:bg-[var(--ds-color-warning-surface-hover)] hover:border-[var(--ds-color-warning-base-default)]"
+              className="w-full aspect-square flex items-center justify-center text-center rounded-md border transition-colors duration-200
+                bg-[var(--ds-color-warning-surface-tinted)]
+                border-[var(--ds-color-warning-border-subtle)]
+                hover:bg-[var(--ds-color-warning-surface-hover)]
+                hover:border-[var(--ds-color-warning-base-default)]"
             >
-              <Card.Block>
-                <h3 className="text-[13px] font-semibold leading-snug text-center px-2 text-[var(--ds-color-text-default)]">
-                 {title.split(' ').map((word, index) => (
-                <span key={index}>
-                 {word}
-               <br />
-                </span>
-                 ))}
-               </h3>
-               
+              <Card.Block className="px-1">
+                <h3 className="text-[11px] font-medium leading-snug text-center text-[var(--ds-color-text-default)] break-words hyphens-auto">
+                  {title}
+                </h3>
               </Card.Block>
             </Card>
           </Link>
@@ -37,6 +35,7 @@ export default function Grid({ solutions }: GridProps) {
     </div>
   );
 }
+
 
 
 
