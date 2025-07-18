@@ -5,46 +5,56 @@ import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
 import { Input } from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
-import logo from "../../public/logo.svg"
+import logo from "../../public/logo.svg";
+import { sendMessageToDeski } from "../api/chatApi";
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<{ sender: "user" | "bot"; message: string }[]>([]);
+  const [messages, setMessages] = useState<
+    { sender: "user" | "bot"; message: string }[]
+  >([]);
   const [inputValue, setInputValue] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to bottom when messages update
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!inputValue.trim()) return;
 
     const userMessage = { sender: "user", message: inputValue } as const;
-    const botReply = {
-      sender: "bot",
-      message: "Takk for spørsmålet! Dette er et standardsvar fra desKI 🤖.",
-    } as const;
-
-    setMessages((prev) => [...prev, userMessage, botReply]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputValue("");
+
+    try {
+      const reply = await sendMessageToDeski(inputValue);
+      const botReply = { sender: "bot", message: reply } as const;
+      setMessages((prev) => [...prev, botReply]);
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "bot",
+          message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
+        } as const,
+      ]);
+    }
   };
 
   return (
-    <div className="relative bg-[var(--ds-color-neutral-background-subtle)] w-full h-screen flex flex-col justify-between items-center ">
+    <div className="relative bg-[var(--ds-color-neutral-background-subtle)] w-full h-screen flex flex-col justify-between items-center">
       {/* Top */}
-      <div className="flex items-center justify-between w-full px-2 mb-6 ">
-      <div className="flex items-center gap-2 h-10 pt-6">
-        <img src={logo} alt="desKI logo" className="w-[25px] object-contain" />
-        <div className="flex items-center h-full">
-      <DropDownMenu solutions={servicedeskSolutions} />
-    </div>
-    </div>
-      <div className="flex items-center h-10 pt-8">
-        <UtilityBar />
+      <div className="flex items-center justify-between w-full px-2 mb-6">
+        <div className="flex items-center gap-2 h-10 pt-6">
+          <img src={logo} alt="desKI logo" className="w-[25px] object-contain" />
+          <div className="flex items-center h-full">
+            <DropDownMenu solutions={servicedeskSolutions} />
+          </div>
+        </div>
+        <div className="flex items-center h-10 pt-8">
+          <UtilityBar />
+        </div>
       </div>
-  </div>
-
 
       {/* Messages */}
       <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
@@ -65,7 +75,7 @@ export default function ChatPage() {
         />
         <button
           onClick={handleSend}
-          className="absolute top-1/2 right-2 -translate-y-1/2 h-[70%] aspect-square rounded-full bg-transparent p-0 m-0 text-lg text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] flex items-center justify-center"
+          className="absolute top-1/2 right-6 -translate-y-1/2 h-[70%] aspect-square rounded-full bg-transparent p-0 m-0 text-lg text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] flex items-center justify-center"
         >
           <PaperplaneIcon className="w-5 h-5" />
         </button>
@@ -73,4 +83,5 @@ export default function ChatPage() {
     </div>
   );
 }
+
 
