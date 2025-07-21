@@ -25,7 +25,7 @@ export function Logo() {
     <img
       src={logoSrc}
       alt="desKI logo"
-      className="mb-10 w-48 md:w-64 lg:w-72"
+      className="w-48 md:w-64 lg:w-72"
     />
   );
 }
