@@ -11,7 +11,7 @@ export function UtilityBar() {
         <MoonIcon className="p-0 m-0" />
       </Button>
       <Button
-        aria-label="Switch to light mode"
+        aria-label="Choose language"
         className="bg-transparent text-[color:var(--ds-color-main-text)] p-0 text-lg hover:bg-[color:var(--ds-color-neutral-surface-hover)] hover:text-[color:var(--ds-color-main-text)] focus:outline-none border-none outline-none"
       >
         <EarthIcon />
