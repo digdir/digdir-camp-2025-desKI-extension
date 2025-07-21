@@ -13,11 +13,11 @@ export default function ColorModeSwitch() {
   };
 
   const icon = colorMode === 'dark' ? <SunIcon /> : <MoonIcon />;
-
+  const tooltipText = colorMode === 'dark' ? "Switch to light mode" : "Switch to dark mode";
 
 
   return (
-    <Tooltip content={"Switch theme"} placement="bottom">
+    <Tooltip content={tooltipText} placement="bottom">
       <Button
         variant="tertiary"
         className="bg-transparent text-[color:var(--ds-color-main-text)] p-0 text-lg hover:bg-[color:var(--ds-color-neutral-surface-hover)] hover:text-[color:var(--ds-color-main-text)] focus:outline-none border-none outline-none"
