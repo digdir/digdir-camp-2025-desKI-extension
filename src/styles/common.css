@@ -125,3 +125,28 @@ body {
 [data-color-scheme="dark"] body {
   background-color: var(--ds-color-brand3-background-tinted);
 }
+
+
+/* ---------------------------- */
+/* Button theme utility classes */
+/* ---------------------------- */
+.btn-theme {
+  background-color: var(--ds-color-warning-surface-tinted);
+  border: 1px solid var(--ds-color-warning-border-subtle);
+}
+
+.btn-theme:hover {
+  background-color: var(--ds-color-warning-surface-hover);
+  border-color: var(--ds-color-warning-base-default);
+}
+
+[data-color-scheme="dark"] .btn-theme {
+  background-color: var(--ds-color-brand3-background-default);
+  border: 0.1rem solid var(--ds-color-brand3-border-subtle);
+}
+
+[data-color-scheme="dark"] .btn-theme:hover {
+  background-color: var(--ds-color-brand3-surface-default);
+  border-color: var(--ds-color-brand3-border-subtle);
+}
+/* ---------------------------- */

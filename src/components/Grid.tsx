@@ -18,14 +18,7 @@ export default function Grid({ solutions, basePath }: GridProps) {
             <Card
               variant="tinted"
               className="w-full aspect-square flex items-center justify-center text-center rounded-md border transition-colors duration-200
-                bg-[var(--ds-color-warning-surface-tinted)]
-                border-[var(--ds-color-warning-border-subtle)]
-                hover:bg-[var(--ds-color-warning-surface-hover)]
-                hover:border-[var(--ds-color-warning-base-default)]
-                dark:bg-[var(--ds-color-brand3-background-default)]
-                dark:border-[var(--ds-color-brand3-border-subtle)]
-                dark:border-[0.1rem]
-                dark:hover:bg-[var(--ds-color-brand3-surface-default)]
+                btn-theme
                 dark:hover:border-[var(--ds-color-brand3-border-subtle)]"
             >
               <Card.Block className="px-1">
