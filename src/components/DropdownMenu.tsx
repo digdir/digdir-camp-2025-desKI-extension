@@ -13,26 +13,26 @@ export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Hent siste del av URL-en
-  const currentSlug = location.pathname.split('/').filter(Boolean).slice(-1)[0] ?? '';
-
-  // Finn løsning som matcher slug-en
-  const selected = useMemo(() => {
-    return solutions.find((solution) => slugify(solution) === currentSlug);
-  }, [currentSlug, solutions]);
-
   const handleSelect = (solution: string) => {
-    const slug = slugify(solution);
-    navigate(`/${slug}`);
-    setOpen(false);
-  };
+  const slug = slugify(solution);
+  const basePath = location.pathname.split('/').filter(Boolean)[0] ?? '';
+  navigate(`/${basePath}/${slug}`);
+  setOpen(false);
+};
+
+const currentSlug = location.pathname.split('/').filter(Boolean).slice(-1)[0] ?? '';
+
+const selected = useMemo(() => {
+  return solutions.find((solution) => slugify(solution) === currentSlug);
+}, [currentSlug, solutions]);
+
 
   return (
     <div className="relative w-full max-w-xs mx-auto">
   <Dropdown.TriggerContext>
     <Dropdown.Trigger
       onClick={() => setOpen(!open)}
-      className="w-full mt-2 bg-transparent border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] rounded px-3 py-2 flex items-center justify-between gap-2"
+      className="w-full mt-1 bg-transparent border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] rounded px-4 py-2 flex items-center justify-between gap-2"
     >
       {selected ?? 'Velg løsning'}
       <ChevronDownIcon aria-hidden />

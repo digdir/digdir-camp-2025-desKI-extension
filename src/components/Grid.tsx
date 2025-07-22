@@ -14,7 +14,7 @@ export default function Grid({ solutions, basePath }: GridProps) {
         const path = `${basePath}/${slugify(title)}`;
 
         return (
-          <Link to={path} key={title}>
+          <Link to={path} key={title} state={{solutions}}>
             <Card
               variant="tinted"
               className="w-full aspect-square flex items-center justify-center text-center rounded-md border transition-colors duration-200

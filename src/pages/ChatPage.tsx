@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { DropDownMenu } from "../components/DropdownMenu";
-import { servicedeskSolutions } from "../data/servicedeskSolutions";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
 import { Input } from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
-import logo from "../../public/logo.svg";
 import { sendMessageToDeski } from "../api/chatApi";
+import { BackButton } from "../components/BackButton";
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<
-    { sender: "user" | "bot"; message: string }[]
-  >([]);
+  const location = useLocation();
+  const solutions = location.state?.solutions ?? [];
+  const [messages, setMessages] = useState<{ sender: "user" | "bot"; message: string }[]>([]);
   const [inputValue, setInputValue] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
 
@@ -36,27 +36,23 @@ export default function ChatPage() {
         {
           sender: "bot",
           message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
-        } as const,
+        },
       ]);
     }
   };
 
   return (
     <div className="relative bg-[var(--ds-color-neutral-background-subtle)] w-full h-screen flex flex-col justify-between items-center">
-      {/* Top */}
-      <div className="flex items-center justify-between w-full px-2 mb-6">
-        <div className="flex items-center gap-2 h-10 pt-6">
-          <img src={logo} alt="desKI logo" className="w-[25px] object-contain" />
-          <div className="flex items-center h-full">
-            <DropDownMenu solutions={servicedeskSolutions} />
-          </div>
+      <div className="flex items-start justify-between w-full px-4 pt-4 mb-4">
+        <div className="flex flex-row gap-1">
+          <BackButton />
+          <DropDownMenu solutions={solutions} />
         </div>
-        <div className="flex items-center h-10 pt-8">
+        <div className="pt-1">
           <UtilityBar />
         </div>
       </div>
 
-      {/* Messages */}
       <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
         {messages.map((msg, idx) => (
           <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
@@ -64,7 +60,6 @@ export default function ChatPage() {
         <div ref={endRef} />
       </div>
 
-      {/* Input */}
       <div className="w-full py-2 relative p-4">
         <Input
           placeholder="Spør et spørsmål"
@@ -83,5 +78,3 @@ export default function ChatPage() {
     </div>
   );
 }
-
-
