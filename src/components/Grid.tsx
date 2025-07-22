@@ -21,7 +21,12 @@ export default function Grid({ solutions, basePath }: GridProps) {
                 bg-[var(--ds-color-warning-surface-tinted)]
                 border-[var(--ds-color-warning-border-subtle)]
                 hover:bg-[var(--ds-color-warning-surface-hover)]
-                hover:border-[var(--ds-color-warning-base-default)]"
+                hover:border-[var(--ds-color-warning-base-default)]
+                dark:bg-[var(--ds-color-brand3-background-default)]
+                dark:border-[var(--ds-color-brand3-border-subtle)]
+                dark:border-[0.1rem]
+                dark:hover:bg-[var(--ds-color-brand3-surface-default)]
+                dark:hover:border-[var(--ds-color-brand3-border-subtle)]"
             >
               <Card.Block className="px-1">
                 <h3 className="text-[11px] font-medium leading-snug text-center text-[var(--ds-color-text-default)] break-words hyphens-auto">

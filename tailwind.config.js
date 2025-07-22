@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -11,16 +12,16 @@ export default {
       },
       colors: {
         brand1: {
-          base: 'var(--brand1-12)',       
-          background: 'var(--brand1-1)',  
-          text: 'var(--brand1-16)',       
+          base: 'var(--brand1-12)',
+          background: 'var(--brand1-1)',
+          text: 'var(--brand1-16)',
         },
         neutral: {
           background: 'var(--neutral-2)',
-          text: 'var(--neutral-9)',     
+          text: 'var(--neutral-9)',
         },
         main: {
-          text: 'var(--neutral-9)',       
+          text: 'var(--neutral-9)',
         },
       },
     },

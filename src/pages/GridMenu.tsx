@@ -16,16 +16,17 @@ export function GridMenu() {
   const solutions = isServicedesk ? servicedeskSolutions : brukerstøtteSolutions;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center
+                    bg-[#f2f3f5] dark:bg-[var(--ds-color-brand3-background-tinted)]">
       <UtilityBar />
 
       <div className="flex flex-col items-center mt-14 mb-10">
-          <Logo />
-        <span className="text-xs sm:text-sm font-medium text-[var(--ds-color-text-default)] ml-28">
+        <Logo />
+        <span className="text-xs sm:text-sm font-medium text-[var(--ds-color-text-default)]
+                         dark:text-white ml-28">
           {title}
         </span>
       </div>
-
 
       <div className="max-w-[600px] mx-auto">
         <Grid solutions={solutions} basePath={basePath} />

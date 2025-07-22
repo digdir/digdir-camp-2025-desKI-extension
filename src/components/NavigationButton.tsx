@@ -14,11 +14,16 @@ type NavigationButtonProps = {
   return (
     <button
       onClick={() => navigate(to)}
-      className={`w-full text-[var(--ds-color-text-default)] font-medium px-4 py-3 rounded-full shadow-sm 
-        bg-[var(--ds-color-warning-surface-tinted)] 
+      className={`w-full text-[var(--ds-color-text-default)] font-medium px-4 py-3 rounded-full shadow-sm
+        bg-[var(--ds-color-warning-surface-tinted)]
         border border-[var(--ds-color-warning-border-subtle)]
-        hover:bg-[var(--ds-color-warning-surface-hover)] 
-        hover:border-[var(--ds-color-warning-base-default)] 
+        hover:bg-[var(--ds-color-warning-surface-hover)]
+        hover:border-[var(--ds-color-warning-base-default)]
+        dark:bg-[var(--ds-color-brand3-background-default)]
+        dark:border-[var(--ds-color-brand3-border-subtle)]
+        dark:border-[0.1rem]
+        dark:hover:bg-[var(--ds-color-brand3-surface-default)]
+        dark:hover:border-[var(--ds-color-brand3-border-subtle)]
         transition flex items-center justify-between ${className || ''}`}
     >
       <span>{label}</span>
