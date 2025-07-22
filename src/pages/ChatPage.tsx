@@ -41,11 +41,15 @@ export default function ChatPage() {
     }
   };
 
+  const basePath = location.pathname.startsWith("/servicedesk")
+    ? "/servicedesk"
+    : "/brukerstøtte";
+
   return (
     <div className="relative bg-[var(--ds-color-neutral-background-subtle)] w-full h-screen flex flex-col justify-between items-center">
       <div className="flex items-start justify-between w-full px-4 pt-4 mb-4">
         <div className="flex flex-row gap-1">
-          <BackButton />
+          <BackButton to={basePath} />
           <DropDownMenu solutions={solutions} />
         </div>
         <div className="pt-1">

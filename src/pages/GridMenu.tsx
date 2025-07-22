@@ -37,7 +37,7 @@ export function GridMenu() {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen px-4 pt-4 text-center">
       <div className="w-full flex justify-between items-start mb-4">
-        <BackButton />
+        <BackButton to="/"/>
         <UtilityBar />
       </div>
 
