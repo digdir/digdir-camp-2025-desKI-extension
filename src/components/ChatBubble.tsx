@@ -12,7 +12,7 @@ export function ChatBubble({ message, sender }: Props) {
         className={`max-w-[60%] px-4 py-3 text-sm break-words ${
           isUser
             ? 'bg-[var(--brand1-12)] text-white rounded-[20px_20px_4px_20px] self-end'
-            : 'text-[var(--neutral-11)] bg-transparent self-start'
+            : 'text-[var(--neutral-11)] bg-transparent self-start dark:text-[var(--ds-color-text-default)]'
         }`}
       >
         {message}
