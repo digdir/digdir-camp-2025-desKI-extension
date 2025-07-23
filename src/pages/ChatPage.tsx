@@ -1,4 +1,3 @@
-// ChatPage.tsx - Refactored with generalized Tailwind classes
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { DropDownMenu } from "../components/DropdownMenu";
@@ -48,8 +47,8 @@ export default function ChatPage() {
 
   return (
     <div className="chat-page-layout">
-      {/* Header */}
-      <div className="flex-between w-full px-4 pt-4 mb-4 back-button-position">
+      {/* Header with z-index to stay on top */}
+      <div className="flex-between w-full h-16 pt-4 relative z-10">
         <div className="flex-start gap-2">
           <BackButton to={basePath} />
           <DropDownMenu solutions={solutions} />
@@ -59,16 +58,16 @@ export default function ChatPage() {
         </div>
       </div>
 
-      {/* Messages Container */}
-      <div className="flex-1 w-full overflow-y-auto px-6 py-20 space-y-4">
+      {/* Messages list */}
+      <div className="flex-1 w-full px-6 py-4 space-y-4 overflow-y-auto">
         {messages.map((msg, idx) => (
           <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
         ))}
         <div ref={endRef} />
       </div>
 
-      {/* Input Container */}
-      <div className="w-full py-2 relative p-4">
+      {/* Input field */}
+      <div className="w-full py-4 relative p-4">
         <Input
           placeholder="Spør et spørsmål"
           value={inputValue}
