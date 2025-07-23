@@ -27,7 +27,7 @@ export function InputField({ onSend }: InputFieldProps) {
       <Button
         variant="primary"
         onClick={handleSend}
-        className="input-button-position btn-icon btn-rounded text-theme-subtle hover:text-theme"
+        className="chat-input-button-position btn-icon btn-rounded text-theme-subtle hover:text-theme"
       >
         <PaperplaneIcon className="w-5 h-5" />
       </Button>

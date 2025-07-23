@@ -161,7 +161,7 @@
 
   .btn-transparent { @apply bg-transparent border-none outline-none focus:outline-none; color: var(--ds-color-main-text); }
   .btn-transparent:hover { background-color: var(--ds-color-neutral-surface-hover); color: var(--ds-color-main-text); }
-  .btn-icon { @apply btn-transparent p-0 text-lg flex-center; }
+  .btn-icon { @apply btn-transparent pr-0 text-lg flex-center; }
   .btn-rounded { @apply rounded-full; }
 
   /* Cards */
@@ -182,7 +182,8 @@
 
   /* Position */
   .absolute-center { @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2; }
-  .input-button-position { @apply absolute top-1/2 right-2 -translate-y-1/2 h-[70%] aspect-square; }
+  .input-button-position { @apply absolute top-1/2 right-4 -translate-y-1/2 h-[70%] aspect-square; }
+  .chat-input-button-position { @apply absolute top-1/2 -translate-y-1/2 h-[70%] aspect-square; }
 
   /* Sizing */
   .full-screen { @apply w-full h-screen; }
@@ -205,7 +206,7 @@
 
   /* Inputs */
   .input-rounded { @apply w-full rounded-[20px] border-none shadow-md focus:outline-none focus:shadow-lg; }
-  .input-with-button { @apply input-rounded pr-14 px-5 py-4; }
+  .input-with-button { @apply input-rounded pr-14 px-3 py-4; }
 
   /* Chat Elements */
   .chat-bubble-user { @apply bg-[var(--brand1-12)] text-white rounded-[20px_20px_4px_20px] self-end; }
