@@ -185,7 +185,7 @@
   .input-button-position { @apply absolute top-1/2 right-4 -translate-y-1/2 h-[70%] aspect-square; }
   .chat-input-button-position { @apply absolute top-1/2 -translate-y-1/2 h-[70%] aspect-square; }
   .back-button-position { @apply fixed top-4 left-4 z-[100]}
-  .dropdown-menu-position { @apply fixed top-3 left-16 z-[100]}
+  .dropdown-menu-position { @apply fixed top-3 left-12 z-[100]}
 
   /* Sizing */
   .full-screen { @apply w-full h-screen; }
