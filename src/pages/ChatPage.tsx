@@ -60,7 +60,7 @@ export default function ChatPage() {
       </div>
 
       {/* Messages Container */}
-      <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
+      <div className="flex-1 w-full overflow-y-auto px-6 py-20 space-y-4">
         {messages.map((msg, idx) => (
           <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
         ))}

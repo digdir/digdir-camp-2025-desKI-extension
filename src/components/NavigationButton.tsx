@@ -17,7 +17,7 @@ export function NavigationButton({ label, to, icon, className }: NavigationButto
       className={`nav-button ${className || ''}`}
     >
       <span>{label}</span>
-      {icon ?? <ArrowRightIcon className="w-5 h-5" />}
+      {icon ?? <ArrowRightIcon className="utility-button-icon-size" />}
     </button>
   );
 }

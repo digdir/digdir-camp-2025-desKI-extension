@@ -11,7 +11,7 @@ export default function ColorModeSwitch() {
     setColorMode(newMode);
   };
 
-  const icon = colorMode === 'dark' ? <SunIcon /> : <MoonIcon />;
+  const icon = colorMode === 'dark' ? <SunIcon className="utility-button-icon-size" /> : <MoonIcon className="utility-button-icon-size" />;
   const tooltipText = colorMode === 'dark' ? "Switch to light mode" : "Switch to dark mode";
 
   return (

@@ -190,6 +190,7 @@
   /* Sizing */
   .full-screen { @apply w-full h-screen; }
   .full-viewport { @apply min-h-screen w-full; }
+  .utility-button-icon-size { @apply w-6 h-6; }
 
   /* Text & Typography */
   .text-theme { color: var(--ds-color-text-default); }
@@ -228,7 +229,7 @@
   .grid-solutions { @apply grid grid-cols-3 lg:grid-cols-4 gap-3 w-full px-1 py-2 scale-[0.80] origin-top; }
 
   /* Layout Helpers */
-  .utility-bar { @apply fixed top-4 right-4 z-[100] flex items-center gap-0.5; }
+  .utility-bar { @apply fixed top-4 right-4 z-[100] flex items-center gap-1; }
   .page-layout { @apply flex-col-center full-viewport px-6 py-10; }
   .page-layout-primary { @apply page-layout bg-[#f2f3f5] dark:bg-theme-accent; }
   .chat-page-layout { @apply relative bg-theme-primary full-screen flex flex-col justify-between items-center; }

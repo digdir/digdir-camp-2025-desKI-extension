@@ -10,7 +10,7 @@ export function UtilityBar() {
         aria-label="Choose language"
         className="btn-transparent"
       >
-        <EarthIcon />
+        <EarthIcon className='utility-button-icon-size' />
       </Button>
     </div>
   );
