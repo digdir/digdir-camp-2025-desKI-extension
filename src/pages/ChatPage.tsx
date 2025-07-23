@@ -1,3 +1,4 @@
+// ChatPage.tsx - Updated with shorter, readable classes
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { DropDownMenu } from "../components/DropdownMenu";
@@ -46,7 +47,7 @@ export default function ChatPage() {
     : "/brukerstøtte";
 
   return (
-    <div className="relative bg-[var(--ds-color-neutral-background-subtle)] w-full h-screen flex flex-col justify-between items-center">
+    <div className="relative bg-ds-neutral-background-subtle w-full h-screen flex flex-col justify-between items-center">
       <div className="flex items-start justify-between w-full px-4 pt-4 mb-4">
         <div className="flex flex-row gap-1">
           <BackButton to={basePath} />
@@ -74,7 +75,7 @@ export default function ChatPage() {
         />
         <button
           onClick={handleSend}
-          className="absolute top-1/2 right-6 -translate-y-1/2 h-[70%] aspect-square rounded-full bg-transparent p-0 m-0 text-lg text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] flex items-center justify-center"
+          className="absolute top-1/2 right-6 -translate-y-1/2 h-[70%] aspect-square rounded-full bg-transparent p-0 m-0 text-lg text-ds-neutral-text-default hover:text-ds-neutral-text-subtle flex items-center justify-center"
         >
           <PaperplaneIcon className="w-5 h-5" />
         </button>

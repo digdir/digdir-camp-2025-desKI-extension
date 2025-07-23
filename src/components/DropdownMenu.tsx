@@ -43,19 +43,19 @@ export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
       <Dropdown.TriggerContext>
         <Dropdown.Trigger
           onClick={() => setOpen(!open)}
-          className="w-full mt-1 bg-transparent border-none outline-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] rounded px-4 py-2 flex items-center justify-between gap-2"
+          className="dropdown-trigger"
         >
           {selected ?? (currentSlug ? formatSlug(currentSlug) : 'Velg løsning')}
           <ChevronDownIcon aria-hidden />
         </Dropdown.Trigger>
 
         <Dropdown open={open} onClose={() => setOpen(false)}>
-          <Dropdown.List className="w-full max-h-60 overflow-y-auto shadow-lg rounded-md bg-white z-50">
+          <Dropdown.List className="dropdown-list">
             {solutions.map((solution) => (
               <Dropdown.Button
                 key={solution}
                 onClick={() => handleSelect(solution)}
-                className="px-4 py-2 w-full text-left hover:bg-[var(--ds-color-neutral-surface-hover)]"
+                className="dropdown-item"
               >
                 {solution}
               </Dropdown.Button>
