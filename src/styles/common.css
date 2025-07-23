@@ -139,7 +139,7 @@
 /* ========================= */
 @layer components {
   /* Buttons */
-  .btn-pill { @apply px-4 py-2 rounded-full; }
+  .btn-pill { @apply px-4 pr-2 py-2 rounded-full; }
 
   .btn-theme {
     background-color: var(--ds-color-warning-surface-tinted);
@@ -184,6 +184,8 @@
   .absolute-center { @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2; }
   .input-button-position { @apply absolute top-1/2 right-4 -translate-y-1/2 h-[70%] aspect-square; }
   .chat-input-button-position { @apply absolute top-1/2 -translate-y-1/2 h-[70%] aspect-square; }
+  .back-button-position { @apply fixed top-4 left-4 z-[100]}
+  .dropdown-menu-position { @apply fixed top-3 left-16 z-[100]}
 
   /* Sizing */
   .full-screen { @apply w-full h-screen; }
@@ -226,7 +228,7 @@
   .grid-solutions { @apply grid grid-cols-3 lg:grid-cols-4 gap-3 w-full px-1 py-2 scale-[0.80] origin-top; }
 
   /* Layout Helpers */
-  .utility-bar { @apply fixed top-2 right-2 z-[100] flex items-center gap-0.5; }
+  .utility-bar { @apply fixed top-4 right-4 z-[100] flex items-center gap-0.5; }
   .page-layout { @apply flex-col-center full-viewport px-6 py-10; }
   .page-layout-primary { @apply page-layout bg-[#f2f3f5] dark:bg-theme-accent; }
   .chat-page-layout { @apply relative bg-theme-primary full-screen flex flex-col justify-between items-center; }

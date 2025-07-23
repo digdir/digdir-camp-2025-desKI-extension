@@ -39,30 +39,32 @@ export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
   };
 
   return (
-    <div className="relative w-full max-w-xs mx-auto">
-      <Dropdown.TriggerContext>
-        <Dropdown.Trigger
-          onClick={() => setOpen(!open)}
-          className="dropdown-trigger"
-        >
-          {selected ?? (currentSlug ? formatSlug(currentSlug) : 'Velg løsning')}
-          <ChevronDownIcon aria-hidden />
-        </Dropdown.Trigger>
+    <div className="dropdown-menu-position">
+      <div className="relative w-full max-w-xs mx-auto ">
+        <Dropdown.TriggerContext>
+          <Dropdown.Trigger
+            onClick={() => setOpen(!open)}
+            className="dropdown-trigger"
+          >
+            {selected ?? (currentSlug ? formatSlug(currentSlug) : 'Velg løsning')}
+            <ChevronDownIcon aria-hidden />
+          </Dropdown.Trigger>
 
-        <Dropdown open={open} onClose={() => setOpen(false)}>
-          <Dropdown.List className="dropdown-list">
-            {solutions.map((solution) => (
-              <Dropdown.Button
-                key={solution}
-                onClick={() => handleSelect(solution)}
-                className="dropdown-item"
-              >
-                {solution}
-              </Dropdown.Button>
-            ))}
-          </Dropdown.List>
-        </Dropdown>
-      </Dropdown.TriggerContext>
+          <Dropdown open={open} onClose={() => setOpen(false)}>
+            <Dropdown.List className="dropdown-list">
+              {solutions.map((solution) => (
+                <Dropdown.Button
+                  key={solution}
+                  onClick={() => handleSelect(solution)}
+                  className="dropdown-item"
+                >
+                  {solution}
+                </Dropdown.Button>
+              ))}
+            </Dropdown.List>
+          </Dropdown>
+        </Dropdown.TriggerContext>
+      </div>
     </div>
   );
 };

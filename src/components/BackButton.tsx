@@ -21,9 +21,9 @@ export function BackButton({ to }: BackButtonProps) {
 
   return (
     <Button
-      variant="secondary"
+      variant="tertiary"
       onClick={handleClick}
-      className="flex-center gap-1 btn-pill"
+      className="flex-center gap-2 back-button-position btn-transparent"
     >
       <ArrowLeftIcon className="w-6 h-6" aria-hidden />
     </Button>

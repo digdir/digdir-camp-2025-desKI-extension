@@ -49,8 +49,8 @@ export default function ChatPage() {
   return (
     <div className="chat-page-layout">
       {/* Header */}
-      <div className="flex-between w-full px-4 pt-4 mb-4">
-        <div className="flex-start gap-1">
+      <div className="flex-between w-full px-4 pt-4 mb-4 back-button-position">
+        <div className="flex-start gap-2">
           <BackButton to={basePath} />
           <DropDownMenu solutions={solutions} />
         </div>
