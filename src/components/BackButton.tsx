@@ -15,7 +15,7 @@ export function BackButton({ to }: BackButtonProps) {
     } else if (window.history.length > 1) {
       navigate(-1);
     } else {
-      navigate('/'); 
+      navigate('/');
     }
   };
 
@@ -23,7 +23,7 @@ export function BackButton({ to }: BackButtonProps) {
     <Button
       variant="secondary"
       onClick={handleClick}
-      className="flex items-center gap-1 px-3 py-2 rounded-full"
+      className="flex-center gap-1 btn-pill"
     >
       <ArrowLeftIcon className="w-6 h-6" aria-hidden />
     </Button>

@@ -9,7 +9,7 @@ type GridProps = {
 
 export default function Grid({ solutions, basePath }: GridProps) {
   return (
-    <div className="grid grid-cols-3 lg:grid-cols-4 gap-3 w-full px-1 py-2 scale-[0.80] origin-top">
+    <div className="grid-solutions">
       {solutions.map((title) => {
         const path = `${basePath}/${slugify(title)}`;
 
@@ -17,12 +17,10 @@ export default function Grid({ solutions, basePath }: GridProps) {
           <Link to={path} key={title} state={{solutions}}>
             <Card
               variant="tinted"
-              className="w-full aspect-square flex items-center justify-center text-center rounded-md border transition-colors duration-200
-                btn-theme
-                dark:hover:border-[var(--ds-color-brand3-border-subtle)]"
+              className="card-square card-theme card-hover-accent"
             >
               <Card.Block className="px-1">
-                <h3 className="text-[11px] font-medium leading-snug text-center text-[var(--ds-color-text-default)] break-words hyphens-auto">
+                <h3 className="text-micro text-theme">
                   {title}
                 </h3>
               </Card.Block>
@@ -33,8 +31,3 @@ export default function Grid({ solutions, basePath }: GridProps) {
     </div>
   );
 }
-
-
-
-
-

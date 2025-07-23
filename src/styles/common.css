@@ -167,7 +167,6 @@
   /* Cards */
   .card-theme { @apply rounded-md border transition-colors duration-200 btn-theme; }
   .card-square { @apply w-full aspect-square flex-center text-center; }
-  .card-hover-accent { @apply hover:border-[var(--ds-color-brand3-border-subtle)]; }
 }
 
 /* ========================= */
@@ -184,7 +183,6 @@
   /* Position */
   .absolute-center { @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2; }
   .input-button-position { @apply absolute top-1/2 right-2 -translate-y-1/2 h-[70%] aspect-square; }
-  .chat-input-button-position { @apply absolute top-1/2 right-6 -translate-y-1/2 h-[70%] aspect-square; }
 
   /* Sizing */
   .full-screen { @apply w-full h-screen; }

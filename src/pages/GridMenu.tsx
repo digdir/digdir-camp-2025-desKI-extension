@@ -35,22 +35,25 @@ export function GridMenu() {
   const basePathUrl = basePath ? `/${basePath}` : "/";
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen px-4 pt-4 text-center
-                    bg-[#f2f3f5] dark:bg-[var(--ds-color-brand3-background-tinted)]">
-      <div className="w-full flex justify-between items-start mb-4">
+    <div className="page-layout-primary">
+      {/* Header */}
+      <div className="flex-between w-full mb-4">
         <BackButton to="/"/>
         <UtilityBar />
       </div>
 
-      <div className="flex flex-col items-center mb-8">
+      {/* Logo Section */}
+      <div className="flex-col-center mb-8">
         <Button variant="secondary" onClick={() => navigate(-1)}>
           <Logo />
         </Button>
-        <span className="text-xs sm:text-sm font-medium text-[var(--ds-color-text-default)] mt-1">
+        <span className="text-small text-theme mt-1">
           {title}
         </span>
       </div>
-      <div className="max-w-[600px] mx-auto w-full">
+
+      {/* Grid Container */}
+      <div className="content-wide">
         <Grid solutions={solutions} basePath={basePathUrl} />
       </div>
     </div>

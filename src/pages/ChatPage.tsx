@@ -1,4 +1,4 @@
-// ChatPage.tsx - Updated with shorter, readable classes
+// ChatPage.tsx - Refactored with generalized Tailwind classes
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { DropDownMenu } from "../components/DropdownMenu";
@@ -47,9 +47,10 @@ export default function ChatPage() {
     : "/brukerstøtte";
 
   return (
-    <div className="relative bg-ds-neutral-background-subtle w-full h-screen flex flex-col justify-between items-center">
-      <div className="flex items-start justify-between w-full px-4 pt-4 mb-4">
-        <div className="flex flex-row gap-1">
+    <div className="chat-page-layout">
+      {/* Header */}
+      <div className="flex-between w-full px-4 pt-4 mb-4">
+        <div className="flex-start gap-1">
           <BackButton to={basePath} />
           <DropDownMenu solutions={solutions} />
         </div>
@@ -58,6 +59,7 @@ export default function ChatPage() {
         </div>
       </div>
 
+      {/* Messages Container */}
       <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
         {messages.map((msg, idx) => (
           <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
@@ -65,17 +67,18 @@ export default function ChatPage() {
         <div ref={endRef} />
       </div>
 
+      {/* Input Container */}
       <div className="w-full py-2 relative p-4">
         <Input
           placeholder="Spør et spørsmål"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          className="w-full h-full rounded-[20px] pr-14 px-5 py-4 border-none shadow-md focus:outline-none focus:shadow-lg"
+          className="input-with-button"
         />
         <button
           onClick={handleSend}
-          className="absolute top-1/2 right-6 -translate-y-1/2 h-[70%] aspect-square rounded-full bg-transparent p-0 m-0 text-lg text-ds-neutral-text-default hover:text-ds-neutral-text-subtle flex items-center justify-center"
+          className="input-button-position btn-icon btn-rounded text-theme-subtle hover:text-theme"
         >
           <PaperplaneIcon className="w-5 h-5" />
         </button>
