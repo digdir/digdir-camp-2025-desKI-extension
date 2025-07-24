@@ -1,4 +1,3 @@
-
 export function ColoredCheckbox({
   label,
   checked,
@@ -9,7 +8,14 @@ export function ColoredCheckbox({
   onChange: (checked: boolean) => void;
 }) {
   return (
-    <label className="flex items-center gap-2 cursor-pointer select-none">
+    <label
+      className="
+        flex items-center gap-2 cursor-pointer select-none
+        relative px-3 py-2 rounded-lg
+        hover:bg-[color:var(--ds-color-neutral-surface-hover)]
+        transition-colors duration-150
+      "
+    >
       <input
         type="checkbox"
         checked={checked}
@@ -23,6 +29,7 @@ export function ColoredCheckbox({
           checked:text-primary
           checked:flex checked:items-center checked:justify-center
           checked:before:content-['✔'] checked:before:text-primary checked:before:text-sm
+          cursor-pointer
         "
       />
       <span className="text-[var(--ds-color-text-default)]">{label}</span>
