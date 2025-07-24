@@ -24,8 +24,6 @@ export function ChatBubble({ message, sender, onEdit }: Props) {
       <div className={`mt-1 ${isUser ? 'mr-0' : 'ml-4'}`}>
         <MessageEditor
           initialText={message}
-          onSave={isUser ? onEdit : undefined}
-          canEdit={isUser}
         />
       </div>
     </div>
