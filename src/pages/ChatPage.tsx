@@ -7,6 +7,7 @@ import { Input, Checkbox } from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
+import { searchInLog } from "../services/SearchInLog";
 
 export default function ChatPage() {
   const location = useLocation();
@@ -73,25 +74,35 @@ export default function ChatPage() {
         <div ref={endRef} />
       </div>
 
-      <div className="w-full py-2 relative p-4">
-        <Checkbox
-          checked={searchLogs}
-          onChange={(e) => setSearchLogs(e.target.checked)}
-          label="Søk i logg"
-        />
-        <Input
-          placeholder="Spør et spørsmål"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          className="w-full h-full rounded-[20px] pr-14 px-5 py-4 border-none shadow-md focus:outline-none focus:shadow-lg"
-        />
-        <button
-          onClick={handleSend}
-          className="absolute top-1/2 right-6 -translate-y-1/2 h-[70%] aspect-square rounded-full bg-transparent p-0 m-0 text-lg text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] flex items-center justify-center"
-        >
+      <div className="w-full p-4 flex flex-col gap-3 bg-[var(--ds-color-surface-neutral-subtle)] shadow-sm">
+        <div className="flex items-center p-2 rounded-xl bg-[var(--ds-color-surface-neutral-default)] shadow-sm">
+          <Checkbox
+            checked={searchLogs}
+            onChange={(e) => setSearchLogs(e.target.checked)}
+            label="Søk i logg"
+            className="checked:bg-[var(--brand1-12)]"
+          />
+        </div>
+
+
+        <div className="relative">
+          <Input
+            placeholder="Spør et spørsmål"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            className="w-full rounded-[20px] pr-14 px-5 py-4 border-none shadow-md
+                      focus:outline-none focus:shadow-lg"
+          />
+          <button
+            onClick={handleSend}
+            className="absolute top-1/2 right-4 -translate-y-1/2
+                      h-8 w-8 rounded-full flex items-center justify-center
+                      text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)]"
+          >
           <PaperplaneIcon className="w-5 h-5" />
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
-const searchInLog = async (query: string) => {
+
+export const searchInLog = async (query: string) => {
   try {
-    const res = await fetch("/logs/app.log");
+    const res = await fetch("/data/log1.txt");
     const text = await res.text();
 
     const matches = text
