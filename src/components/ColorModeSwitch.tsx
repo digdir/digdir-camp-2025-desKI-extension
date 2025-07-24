@@ -5,7 +5,6 @@ import { ColorMode, useColorMode } from '../lib/settings';
 export default function ColorModeSwitch() {
   const [colorMode, setColorMode] = useColorMode();
 
-  // Fallback to system on first load — but only toggle light/dark manually
   const toggleColorMode = () => {
     const newMode = colorMode === 'dark' ? ColorMode.Light : ColorMode.Dark;
     setColorMode(newMode);
@@ -20,6 +19,7 @@ export default function ColorModeSwitch() {
         variant="tertiary"
         className="btn-transparent"
         onClick={toggleColorMode}
+        className="text-foreground hover:bg-muted hover:text-foreground p-0 text-lg border-none outline-none"
       >
         {icon}
       </Button>

@@ -8,11 +8,10 @@ interface DropDownMenuProps {
   solutions: string[];
 }
 
-// Format fallback slug to title case
 function formatSlug(slug: string): string {
   return slug
-    .replace(/-/g, ' ') // Replace hyphens with spaces
-    .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize each word
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
@@ -20,21 +19,17 @@ export const DropDownMenu = ({ solutions }: DropDownMenuProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Find base path (brukerstøtte or servicedesk)
   const pathParts = location.pathname.split('/').filter(Boolean);
   const basePath = pathParts[0] ?? '';
-  const currentSlug = (pathParts[1] ?? '').toLowerCase(); // lowercased to match slugify
+  const currentSlug = (pathParts[1] ?? '').toLowerCase();
 
-  // Find selected solution that matches current slug
   const selected = useMemo(() => {
     return solutions.find((solution) => slugify(solution) === currentSlug);
   }, [currentSlug, solutions]);
 
   const handleSelect = (solution: string) => {
     const slug = slugify(solution);
-    navigate(`/${basePath}/${slug}`, {
-      state: { solutions },
-    });
+    navigate(`/${basePath}/${slug}`, { state: { solutions } });
     setOpen(false);
   };
 

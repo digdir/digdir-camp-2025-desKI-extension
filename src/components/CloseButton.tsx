@@ -1,7 +1,7 @@
 import { Button } from '@digdir/designsystemet-react';
 
-export function CloseButton(){
-    const handleClose = () => {
+export function CloseButton() {
+  const handleClose = () => {
     const frame = window.frameElement;
     if (frame && frame.parentNode) {
       frame.parentNode.removeChild(frame);

@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base (light mode) */
+    --background: var(--neutral-2);                /* #f3f4f4 */
+    --foreground: var(--neutral-11);               /* #1f2c3d */
+
+    --surface: var(--neutral-1);                   /* #ffffff */
+    --text-body: var(--neutral-11);                /* #1f2c3d */
+    --text-muted: var(--neutral-8);                /* #717a84 */
+
+    --primary: var(--brand2-6);                    /* #edc567 */
+    --primary-foreground: var(--neutral-11);       /* #1f2c3d */
+
+    --secondary: var(--accent-12);                 /* #0062BA */
+    --secondary-foreground: var(--neutral-1);      /* #ffffff */
+
+    --border-subtle: var(--neutral-5);             /* #d8dadd */
+    --muted: var(--neutral-4);                     /* #e7e9ea */
+
+    --user: var(--brand1-12);                      /* #F45F63 */
+    --text-user: var(--neutral-1);                 /* #ffffff */
+  }
+
+  .dark {
+    /* Base (dark mode) */
+    --background: var(--neutral-11);               /* #1f2c3d */
+    --foreground: var(--neutral-1);                /* #ffffff */
+
+    --surface: var(--neutral-12);                  /* #1E2B3C */
+    --text-body: var(--neutral-1);                 /* #ffffff */
+    --text-muted: var(--neutral-9);                /* #545e6b */
+
+    --primary: var(--brand2-12);                   /* #E5AA20 */
+    --primary-foreground: var(--neutral-11);       /* #1f2c3d */
+
+    --secondary: var(--accent-8);                  /* #2a7cc5 */
+    --secondary-foreground: var(--neutral-1);      /* #ffffff */
+
+    --border-subtle: var(--neutral-7);             /* #b8bcc1 */
+    --muted: var(--neutral-4);                     /* #262e3a */
+
+    --user: var(--brand1-8);                       /* #cb4f53 */
+    --text-user: var(--neutral-1);                 /* #ffffff */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+    font-feature-settings: "cv05" 1;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
