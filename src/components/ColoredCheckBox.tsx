@@ -1,0 +1,31 @@
+
+export function ColoredCheckbox({
+  label,
+  checked,
+  onChange,
+}: {
+  label: string;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+}) {
+  return (
+    <label className="flex items-center gap-2 cursor-pointer select-none">
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        className="
+          appearance-none w-5 h-5 rounded-[var(--ds-border-radius-sm)]
+          border border-primary
+          bg-[var(--ds-color-surface-default)]
+          transition-colors duration-150
+          checked:bg-[var(--brand1-12)]
+          checked:text-primary
+          checked:flex checked:items-center checked:justify-center
+          checked:before:content-['✔'] checked:before:text-primary checked:before:text-sm
+        "
+      />
+      <span className="text-[var(--ds-color-text-default)]">{label}</span>
+    </label>
+  );
+}

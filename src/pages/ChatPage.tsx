@@ -3,11 +3,12 @@ import { useLocation } from "react-router-dom";
 import { DropDownMenu } from "../components/DropdownMenu";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
-import { Input, Checkbox } from "@digdir/designsystemet-react";
+import { Input} from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
 import { searchInLog } from "../services/SearchInLog";
+import { ColoredCheckbox } from "../components/ColoredCheckBox";
 
 export default function ChatPage() {
   const location = useLocation();
@@ -76,11 +77,10 @@ export default function ChatPage() {
 
       <div className="w-full p-4 flex flex-col gap-3 bg-[var(--ds-color-surface-neutral-subtle)] shadow-sm">
         <div className="flex items-center p-2 rounded-xl bg-[var(--ds-color-surface-neutral-default)] shadow-sm">
-          <Checkbox
-            checked={searchLogs}
-            onChange={(e) => setSearchLogs(e.target.checked)}
+          <ColoredCheckbox
             label="Søk i logg"
-            className="checked:bg-[var(--brand1-12)]"
+            checked={searchLogs}
+            onChange={setSearchLogs}
           />
         </div>
 
