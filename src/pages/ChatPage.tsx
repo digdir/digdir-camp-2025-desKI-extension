@@ -7,7 +7,6 @@ import { Input } from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
-import { MessageEditor } from "../components/MessageEditor";
 
 export default function ChatPage() {
   const location = useLocation();
@@ -63,9 +62,6 @@ export default function ChatPage() {
           <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
         ))}
         <div ref={endRef} />
-        <div className="mt-1">
-          <MessageEditor initialText={"Hello"} />
-        </div>
       </div>
 
       <div className="w-full py-2 relative p-4">
