@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { DropDownMenu } from "../components/DropdownMenu";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
-import { Input } from "@digdir/designsystemet-react";
+import { Input, Checkbox } from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
@@ -14,6 +14,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<{ sender: "user" | "bot"; message: string }[]>([]);
   const [inputValue, setInputValue] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
+  const [searchLogs, setSearchLogs] = useState(false);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -65,6 +66,11 @@ export default function ChatPage() {
       </div>
 
       <div className="w-full py-2 relative p-4">
+        <Checkbox
+          checked={searchLogs}
+          onChange={(e) => setSearchLogs(e.target.checked)}
+          label="Søk i logg"
+        />
         <Input
           placeholder="Spør et spørsmål"
           value={inputValue}
