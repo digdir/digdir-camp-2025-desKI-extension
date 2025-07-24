@@ -59,7 +59,18 @@ export default function ChatPage() {
 
       <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
         {messages.map((msg, idx) => (
-          <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
+          <ChatBubble
+            key={idx}
+            sender={msg.sender}
+            message={msg.message}
+            onEdit={msg.sender === "user" ? (newMsg) => {
+              setMessages((prev) => {
+                const copy = [...prev];
+                copy[idx] = { ...copy[idx], message: newMsg };
+                return copy;
+              });
+            } : undefined}
+          />
         ))}
         <div ref={endRef} />
       </div>

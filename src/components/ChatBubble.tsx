@@ -3,9 +3,10 @@ import { MessageEditor } from "./MessageEditor";
 type Props = {
   message: string;
   sender: 'user' | 'bot';
+  onEdit?: (newMsg: string) => void;  // <-- Legger til onEdit som optional prop
 };
 
-export function ChatBubble({ message, sender }: Props) {
+export function ChatBubble({ message, sender, onEdit }: Props) {
   const isUser = sender === 'user';
 
   return (
@@ -21,7 +22,11 @@ export function ChatBubble({ message, sender }: Props) {
         {message}
       </div>
       <div className={`mt-1 ${isUser ? 'mr-0' : 'ml-4'}`}>
-        <MessageEditor initialText={message} />
+        <MessageEditor
+          initialText={message}
+          onSave={isUser ? onEdit : undefined}
+          canEdit={isUser}
+        />
       </div>
     </div>
   );
