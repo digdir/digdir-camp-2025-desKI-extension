@@ -12,7 +12,7 @@ export function MessageEditor({ initialText}: MessageEditorProps) {
   const handleCopy = () => {
     const textarea = document.createElement("textarea");
     textarea.value = initialText;
-    textarea.style.position = "fixed"; // unngå scroll
+    textarea.style.position = "fixed";
     document.body.appendChild(textarea);
     textarea.focus();
     textarea.select();

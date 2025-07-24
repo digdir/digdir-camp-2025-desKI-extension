@@ -1,7 +1,6 @@
-// Ny hjelpefunksjon for å søke i logg (legges inne i ChatPage)
 const searchInLog = async (query: string) => {
   try {
-    const res = await fetch("/logs/app.log"); // sørg for at loggen ligger i public/logs/
+    const res = await fetch("/logs/app.log");
     const text = await res.text();
 
     const matches = text

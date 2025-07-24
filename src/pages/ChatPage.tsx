@@ -28,7 +28,14 @@ export default function ChatPage() {
     setInputValue("");
 
     try {
-      const reply = await sendMessageToDeski(inputValue);
+      let reply: string;
+
+      if (searchLogs) {
+        reply = await searchInLog(inputValue);
+      } else {
+        reply = await sendMessageToDeski(inputValue);
+      }
+
       const botReply = { sender: "bot", message: reply } as const;
       setMessages((prev) => [...prev, botReply]);
     } catch (error) {
@@ -41,6 +48,7 @@ export default function ChatPage() {
       ]);
     }
   };
+
 
   const basePath = location.pathname.startsWith("/servicedesk")
     ? "/servicedesk"
