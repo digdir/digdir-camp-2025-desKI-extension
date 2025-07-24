@@ -10,17 +10,33 @@ export function MessageEditor({ initialText}: MessageEditorProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(initialText);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+    const textarea = document.createElement("textarea");
+    textarea.value = initialText;
+    textarea.style.position = "fixed"; // unngå scroll
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
 
+    try {
+      const successful = document.execCommand("copy");
+      if (successful) {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } else {
+        alert("Kopiering mislyktes.");
+      }
+      } catch (err) {
+        alert("Kopiering støttes ikke.");
+        console.error(err);
+      }
+      document.body.removeChild(textarea);
+  };
   return (
     <div className="flex gap-1">
       <Tooltip content={copied ? "Kopiert!" : "Kopier tekst"} placement="top">
         <Button
           variant="tertiary"
-          disabled={copied}
+          aria-label={copied ? "Kopiert!" : "Kopier tekst"}
           className={`p-0 w-6 h-6 min-w-0 min-h-0 rounded ${
             copied ? "cursor-default opacity-70" : "hover:bg-[var(--ds-color-neutral-surface-hover)]"
           }`}
