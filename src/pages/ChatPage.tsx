@@ -4,8 +4,6 @@ import { DropDownMenu } from "../components/DropdownMenu";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
 import { ChatInputField } from "../components/ChatInputField";
-import { Input } from "@digdir/designsystemet-react";
-import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
 import { searchInLog } from "../services/SearchInLog";
@@ -92,8 +90,9 @@ export default function ChatPage() {
 
       <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
       {messages.map((msg, idx) => (
-        <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
+        <ChatBubble key={idx} sender={msg.sender} message={msg.message} imageUrls={msg.imageUrls} />
       ))}
+
         <div ref={endRef} />
       </div>
 
