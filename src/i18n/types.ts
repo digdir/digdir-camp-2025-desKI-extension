@@ -10,3 +10,10 @@ export const LANGUAGES = {
 } as const;
 
 export type Language = (typeof LANGUAGES)[keyof typeof LANGUAGES];
+
+export const languageLabels: Record<Language, string> = {
+  nb: 'Bokmål',
+  nn: 'Nynorsk',
+  en: 'English',
+  ns: 'Davvisámegiella',
+};

@@ -1,82 +1,50 @@
-import { Dropdown } from '@digdir/designsystemet-react';
-import { ChevronDownIcon } from '@navikt/aksel-icons';
+import { Dropdown, Tooltip } from '@digdir/designsystemet-react';
+import { EarthIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { SOLUTIONS_NO } from '../data/solutions';
 import { KEY } from '../i18n/constants';
-import { slugify } from '../utils/slugify';
+import { LOCALSTORAGE_KEY } from '../i18n/i18n';
+import { LANGUAGES, type Language } from '../i18n/types';
 
-function formatSlug(slug: string): string {
-  return slug.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
-}
+const languageLabels: Record<Language, string> = {
+  nb: 'Bokmål',
+  nn: 'Nynorsk',
+  en: 'English',
+  ns: 'Davvisámegiella',
+};
 
-/**
- * DropdownMenu displays translated support solutions in a dropdown.
- * URLs use Norwegian slugs (from SOLUTIONS_NO) for consistency.
- * Only used in the 'servicedesk' route.
- */
-
-export function DropdownMenu() {
-  const { t } = useTranslation();
+export default function LanguageDropdown() {
+  const { i18n, t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const pathParts = location.pathname.split('/');
-  const source = pathParts[1]; // 'servicedesk'
-  const currentSlug = pathParts[2] || '';
-
-  // Get translated solutions (order must match SOLUTIONS_NO)
-  const translatedSolutions = t(KEY.solutions_list, {
-    returnObjects: true,
-  }) as string[];
-
-  // Map Norwegian name -> translated name
-  const solutionMap = SOLUTIONS_NO.reduce(
-    (acc, noName, index) => {
-      acc[noName] = translatedSolutions[index];
-      return acc;
-    },
-    {} as Record<string, string>,
-  );
-
-  // Find which Norwegian solution matches the slug
-  const norwegianName = SOLUTIONS_NO.find(
-    (name) => slugify(name) === currentSlug,
-  );
-
-  // Display name: translated if found, fallback to formatted slug
-  const currentSolution =
-    norwegianName && solutionMap[norwegianName]
-      ? solutionMap[norwegianName]
-      : formatSlug(currentSlug);
-
-  const handleSelect = (norwegianName: string) => {
-    const slug = slugify(norwegianName);
-    navigate(`/${source}/${slug}`);
+  const switchLanguage = (lang: Language) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem(LOCALSTORAGE_KEY, lang);
     setOpen(false);
   };
 
   return (
     <Dropdown.TriggerContext>
-      <Dropdown.Trigger
-        className="text-[var(--ds-color-main-text-default)] mt-8 bg-transparent border-none hover:bg-[var(--ds-color-neutral-surface-hover)] focus:bg-[var(--ds-color-neutral-surface-hover)] active:bg-[var(--ds-color-neutral-surface-hover)] focus-visible:bg-[var(--ds-color-neutral-surface-hover)] focus:border-none focus:outline-none md:ml-5 md:mt-0 md:pl-1 max-md:text-sm"
-        onClick={() => setOpen(!open)}
-        aria-label={t(KEY.select_solution)}
-      >
-        {currentSolution}
-        <ChevronDownIcon aria-hidden />
-      </Dropdown.Trigger>
+      <Tooltip content={t(KEY.language_switch)} placement="left">
+        <div>
+          <Dropdown.Trigger
+            className={"text-[var(--ds-color-main-text-default)] bg-transparent border-none hover:bg-[var(--ds-color-neutral-surface-hover)]"}
+            onClick={() => setOpen(!open)}
+            aria-label={t(KEY.language_switch)}
+          >
+            <EarthIcon />
+          </Dropdown.Trigger>
+        </div>
+      </Tooltip>
       <Dropdown open={open} onClose={() => setOpen(false)}>
         <Dropdown.List>
-          {SOLUTIONS_NO.map((norwegianName) => (
+          {(Object.values(LANGUAGES) as Language[]).map((lang) => (
             <Dropdown.Button
-              key={norwegianName}
-              onClick={() => handleSelect(norwegianName)}
-              className="border-none outline-none hover:border-none hover:bg-[var(--ds-color-neutral-surface-hover)]"
+              key={lang}
+              onClick={() => switchLanguage(lang)}
+              className={"hover:bg-[var(--ds-color-neutral-surface-hover)]"}
             >
-              {solutionMap[norwegianName] || norwegianName}
+              {languageLabels[lang]}
             </Dropdown.Button>
           ))}
         </Dropdown.List>
