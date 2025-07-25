@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { DropDownMenu } from "../components/DropdownMenu";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
+import { ChatInputField } from "../components/ChatInputField";
 import { Input } from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
@@ -89,9 +90,22 @@ export default function ChatPage() {
         </div>
       </div>
 
+      <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
+      {messages.map((msg, idx) => (
+        <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
+      ))}
+        <div ref={endRef} />
+      </div>
+
       <div className="w-full p-2 flex flex-col gap-3 bg-[var(--ds-color-surface-neutral-subtle)] shadow-sm">
+
         {/* Rad med søk i logg og bildeopplasting */}
-        <div className="ml-4 flex items-center justify-left gap-4">
+        <div className="ml-2 flex items-start justify-left gap-4">
+          <ColoredCheckbox
+          label="Søk i logg"
+          checked={searchLogs}
+          onChange={setSearchLogs}
+          />
           <ImageUpload
             uploadedImages={uploadedImages}
             imageError={imageError}
@@ -99,31 +113,17 @@ export default function ChatPage() {
             onRemoveImage={handleRemoveImage}
             fileInputRef={fileInputRef}
           />
-          <ColoredCheckbox
-            label="Søk i logg"
-            checked={searchLogs}
-            onChange={setSearchLogs}
-          />
+
         </div>
 
         {/* Tekstinput + sendeknapp */}
         <div className="relative mt-2">
-          <Input
-            placeholder="Spør et spørsmål"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSend()}
-            className="w-full rounded-[20px] pr-14 px-5 py-4 border-none shadow-md
-                      focus:outline-none focus:shadow-lg"
+          <ChatInputField
+            inputValue={inputValue}
+            onInputChange={setInputValue}
+            onSend={handleSend}
+            fileInputRef={fileInputRef}
           />
-          <button
-            onClick={handleSend}
-            className="absolute top-1/2 right-4 -translate-y-1/2
-                      h-8 w-8 rounded-full flex items-center justify-center
-                      text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)]"
-          >
-            <PaperplaneIcon className="w-5 h-5" />
-          </button>
         </div>
       </div>
     </div>

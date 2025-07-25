@@ -1,6 +1,3 @@
-import { useTranslation } from "react-i18next";
-import { CameraIcon } from "@navikt/aksel-icons";
-import { Button } from "@digdir/designsystemet-react";
 
 type Props = {
   uploadedImages: string[];
@@ -17,10 +14,6 @@ export function ImageUpload({
   onRemoveImage,
   fileInputRef,
 }: Props) {
-
-  const handleOpenFileDialog = () => {
-    fileInputRef.current?.click();
-  };
 
   return (
     <div>
@@ -52,21 +45,6 @@ export function ImageUpload({
       {imageError && (
         <p className="text-red-600 text-sm mt-1 mb-2">{imageError}</p>
       )}
-
-      <Button
-        type="button"
-        onClick={handleOpenFileDialog}
-        className="
-            flex items-center justify-center gap-1 px-3 py-2 rounded-lg
-            bg-[var(--brand1-12)] text-white
-            border border-transparent shadow-sm
-            hover:bg-[var(--brand1-13)]
-            transition-colors duration-200
-        "
-        >
-        <CameraIcon className="w-4 h-4" />
-            Last opp bilde
-        </Button>
 
       <input
         type="file"
