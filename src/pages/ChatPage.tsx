@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import { DropDownMenu } from "../components/DropdownMenu";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
@@ -7,8 +8,10 @@ import { Input } from "@digdir/designsystemet-react";
 import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
+import { KEY } from '../i18n/constants';
 
 export default function ChatPage() {
+  const { t } = useTranslation();
   const location = useLocation();
   const solutions = location.state?.solutions ?? [];
   const [messages, setMessages] = useState<{ sender: "user" | "bot"; message: string }[]>([]);
@@ -35,7 +38,7 @@ export default function ChatPage() {
         ...prev,
         {
           sender: "bot",
-          message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
+          message: t(KEY.chat_connection_error),
         },
       ]);
     }
@@ -66,7 +69,7 @@ export default function ChatPage() {
 
       <div className="w-full py-2 relative p-4">
         <Input
-          placeholder="Spør et spørsmål"
+          placeholder={t(KEY.ask_question_placeholder)}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}

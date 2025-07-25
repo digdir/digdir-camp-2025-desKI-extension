@@ -34,6 +34,8 @@ export const en = {
   // ==================== //
   [KEY.api_connection_error]:
     'Sorry, something went wrong with the connection to the desKI API',
+  [KEY.chat_connection_error]:
+    'Sorry, something went wrong with the connection to desKI 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -54,6 +56,15 @@ export const en = {
   [KEY.go_to_homepage]: 'Go to homepage',
   [KEY.remove_image]: 'Remove image',
   [KEY.select_solution]: 'Select solution',
+
+  // ==================== //
+  //    New translations  //
+  // ==================== //
+  [KEY.main_question]: 'What can I help you with today?',
+  [KEY.servicedesk]: 'Servicedesk',
+  [KEY.brukerstotte]: 'User Support',
+  [KEY.unknown]: 'Unknown',
+  [KEY.ask_question_placeholder]: 'Ask a question',
 };
 
 /**
@@ -90,6 +101,8 @@ export const nb = {
   // ==================== //
   [KEY.api_connection_error]:
     'Beklager, noe gikk galt med forbindelsen til desKI api-et',
+  [KEY.chat_connection_error]:
+    'Beklager, noe gikk galt med forbindelsen til desKI 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -110,6 +123,15 @@ export const nb = {
   [KEY.go_to_homepage]: 'Gå til forsiden',
   [KEY.remove_image]: 'Fjern bilde',
   [KEY.select_solution]: 'Velg løsning',
+
+  // ==================== //
+  //    New translations  //
+  // ==================== //
+  [KEY.main_question]: 'Hva kan jeg hjelpe deg med i dag?',
+  [KEY.servicedesk]: 'Servicedesk',
+  [KEY.brukerstotte]: 'Brukerstøtte',
+  [KEY.unknown]: 'Ukjent',
+  [KEY.ask_question_placeholder]: 'Spør et spørsmål',
 };
 
 /**
@@ -146,6 +168,8 @@ export const nn = {
   // ==================== //
   [KEY.api_connection_error]:
     'Beklagar, noko gjekk gale med sambandet til desKI API-et',
+  [KEY.chat_connection_error]:
+    'Beklagar, noko gjekk gale med sambandet til desKI 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -166,6 +190,15 @@ export const nn = {
   [KEY.go_to_homepage]: 'Gå til framsida',
   [KEY.remove_image]: 'Fjern bilete',
   [KEY.select_solution]: 'Velg løysing',
+
+  // ==================== //
+  //    New translations  //
+  // ==================== //
+  [KEY.main_question]: 'Kva kan eg hjelpe deg med i dag?',
+  [KEY.servicedesk]: 'Servicedesk',
+  [KEY.brukerstotte]: 'Brukerstøtte',
+  [KEY.unknown]: 'Ukjend',
+  [KEY.ask_question_placeholder]: 'Spør eit spørsmål',
 };
 
 /**
@@ -201,6 +234,8 @@ export const ns = {
   // ==================== //
   [KEY.api_connection_error]:
     'Ándagassii, juoga manai funet desKI api oktavuođain',
+  [KEY.chat_connection_error]:
+    'Ándagassii, juoga manai funet desKI oktavuođain 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -221,4 +256,13 @@ export const ns = {
   [KEY.go_to_homepage]: 'Mana ovdasiidui',
   [KEY.remove_image]: 'Váldde gova eret',
   [KEY.select_solution]: 'Vállje čovdosa',
+
+  // ==================== //
+  //    New translations  //
+  // ==================== //
+  [KEY.main_question]: 'Maid sáhtán veahkehit du odne?',
+  [KEY.servicedesk]: 'Servicedesk',
+  [KEY.brukerstotte]: 'Geavaheaddjiveahki',
+  [KEY.unknown]: 'Dovdameahttun',
+  [KEY.ask_question_placeholder]: 'Jeara gažaldaga',
 };

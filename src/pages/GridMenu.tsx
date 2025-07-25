@@ -2,13 +2,16 @@ import Grid from "../components/Grid";
 import { brukerstøtteSolutions } from "../data/brukerstøtteSolutions";
 import { servicedeskSolutions } from "../data/servicedeskSolutions";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import { Logo } from '../components/Logo';
 import { UtilityBar } from '../components/UtilityBar';
 import { BackButton } from '../components/BackButton';
 import { Button } from "@digdir/designsystemet-react";
 import { useNavigate } from 'react-router-dom';
+import { KEY } from '../i18n/constants';
 
 export function GridMenu() {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -21,10 +24,10 @@ export function GridMenu() {
       : "";
 
   const title = basePath === "servicedesk"
-    ? "Servicedesk"
+    ? t(KEY.servicedesk)
     : basePath === "brukerstøtte"
-      ? "Brukerstøtte"
-      : "Ukjent";
+      ? t(KEY.brukerstotte)
+      : t(KEY.unknown);
 
   const solutions = basePath === "servicedesk"
     ? servicedeskSolutions

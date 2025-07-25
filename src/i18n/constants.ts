@@ -19,6 +19,7 @@ export const KEY = {
   //    Error messages    //
   // ==================== //
   api_connection_error: 'api_connection_error',
+  chat_connection_error: 'chat_connection_error',
 
   // ==================== //
   //      UtilityBar      //
@@ -39,4 +40,14 @@ export const KEY = {
   go_to_homepage: 'go_to_homepage',
   remove_image: 'remove_image',
   select_solution: 'select_solution',
+
+  // ==================== //
+  //    New keys for      //
+  //  untranslated files  //
+  // ==================== //
+  main_question: 'main_question',
+  servicedesk: 'servicedesk',
+  brukerstotte: 'brukerstotte',
+  unknown: 'unknown',
+  ask_question_placeholder: 'ask_question_placeholder',
 } as const;
