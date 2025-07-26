@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { DropDownMenu } from "../components/DropdownMenu";
+import { DropdownMenu } from "../components/DropdownMenu";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
 import { Input } from "@digdir/designsystemet-react";
@@ -13,7 +13,6 @@ import { KEY } from '../i18n/constants';
 export default function ChatPage() {
   const { t } = useTranslation();
   const location = useLocation();
-  const solutions = location.state?.solutions ?? [];
   const [messages, setMessages] = useState<{ sender: "user" | "bot"; message: string }[]>([]);
   const [inputValue, setInputValue] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
@@ -38,7 +37,7 @@ export default function ChatPage() {
         ...prev,
         {
           sender: "bot",
-          message: t(KEY.chat_connection_error),
+          message: t(KEY.api_connection_error),
         },
       ]);
     }
@@ -53,7 +52,7 @@ export default function ChatPage() {
       <div className="flex items-start justify-between w-full px-4 pt-4 mb-4">
         <div className="flex flex-row gap-1">
           <BackButton to={basePath} />
-          <DropDownMenu solutions={solutions} />
+          <DropdownMenu />
         </div>
         <div className="pt-1">
           <UtilityBar />
@@ -69,7 +68,7 @@ export default function ChatPage() {
 
       <div className="w-full py-2 relative p-4">
         <Input
-          placeholder={t(KEY.ask_question_placeholder)}
+          placeholder={t(KEY.chat_placeholder)}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}

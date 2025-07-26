@@ -12,15 +12,35 @@ export const en = {
     'Maskinporten',
     'eFormidling',
     'eSignering',
-    'Kontakt- og reservasjonsregisteret',
-    'Digital postkasse til Innbyggere',
+    'Contact and Reservation Register',
+    'Digital Mailbox for Citizens',
     'eInnsyn',
     'ELMA',
-    'Ansattporten',
+    'Employee Portal',
     'Peppol eGovernment',
-    'Digital lommebok',
+    'Digital Wallet',
     'Other',
   ],
+
+  // ==================== //
+  //   Solution titles    //
+  // ==================== //
+  [KEY.servicedesk]: 'Service Desk',
+  [KEY.brukerstotte]: 'User Support',
+  [KEY.unknown]: 'Unknown',
+
+  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_maskinporten]: 'Maskinporten',
+  [KEY.solution_eformidling]: 'eFormidling',
+  [KEY.solution_esignering]: 'eSignering',
+  [KEY.solution_kontakt_reservasjon]: 'Contact and Reservation Register',
+  [KEY.solution_digital_postkasse]: 'Digital Mailbox for Citizens',
+  [KEY.solution_einnsyn]: 'eInnsyn',
+  [KEY.solution_elma]: 'ELMA',
+  [KEY.solution_ansattporten]: 'Employee Portal',
+  [KEY.solution_peppol]: 'Peppol eGovernment',
+  [KEY.solution_digital_lommebok]: 'Digital Wallet',
+  [KEY.solution_other]: 'Other',
 
   // ==================== //
   //      Chat area       //
@@ -34,8 +54,6 @@ export const en = {
   // ==================== //
   [KEY.api_connection_error]:
     'Sorry, something went wrong with the connection to the desKI API',
-  [KEY.chat_connection_error]:
-    'Sorry, something went wrong with the connection to desKI 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -56,15 +74,6 @@ export const en = {
   [KEY.go_to_homepage]: 'Go to homepage',
   [KEY.remove_image]: 'Remove image',
   [KEY.select_solution]: 'Select solution',
-
-  // ==================== //
-  //    New translations  //
-  // ==================== //
-  [KEY.main_question]: 'What can I help you with today?',
-  [KEY.servicedesk]: 'Servicedesk',
-  [KEY.brukerstotte]: 'User Support',
-  [KEY.unknown]: 'Unknown',
-  [KEY.ask_question_placeholder]: 'Ask a question',
 };
 
 /**
@@ -80,7 +89,7 @@ export const nb = {
     'eFormidling',
     'eSignering',
     'Kontakt- og reservasjonsregisteret',
-    'Digital postkasse til Innbyggere',
+    'Digital postkasse til innbyggere',
     'eInnsyn',
     'ELMA',
     'Ansattporten',
@@ -88,6 +97,27 @@ export const nb = {
     'Digital lommebok',
     'Annet',
   ],
+
+  // ==================== //
+  //   Solution titles    //
+  // ==================== //
+  [KEY.servicedesk]: 'Servicedesk',
+  [KEY.brukerstotte]: 'Brukerstøtte',
+  [KEY.unknown]: 'Ukjent',
+
+  // Common solutions (used in both brukerstøtte and servicedesk)
+  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_maskinporten]: 'Maskinporten',
+  [KEY.solution_eformidling]: 'eFormidling',
+  [KEY.solution_esignering]: 'eSignering',
+  [KEY.solution_kontakt_reservasjon]: 'Kontakt- og reservasjonsregisteret',
+  [KEY.solution_digital_postkasse]: 'Digital postkasse til innbyggere',
+  [KEY.solution_einnsyn]: 'eInnsyn',
+  [KEY.solution_elma]: 'ELMA',
+  [KEY.solution_ansattporten]: 'Ansattporten',
+  [KEY.solution_peppol]: 'Peppol eGovernment',
+  [KEY.solution_digital_lommebok]: 'Digital lommebok',
+  [KEY.solution_other]: 'Annet',
 
   // ==================== //
   //      Chat area       //
@@ -101,8 +131,6 @@ export const nb = {
   // ==================== //
   [KEY.api_connection_error]:
     'Beklager, noe gikk galt med forbindelsen til desKI api-et',
-  [KEY.chat_connection_error]:
-    'Beklager, noe gikk galt med forbindelsen til desKI 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -123,15 +151,6 @@ export const nb = {
   [KEY.go_to_homepage]: 'Gå til forsiden',
   [KEY.remove_image]: 'Fjern bilde',
   [KEY.select_solution]: 'Velg løsning',
-
-  // ==================== //
-  //    New translations  //
-  // ==================== //
-  [KEY.main_question]: 'Hva kan jeg hjelpe deg med i dag?',
-  [KEY.servicedesk]: 'Servicedesk',
-  [KEY.brukerstotte]: 'Brukerstøtte',
-  [KEY.unknown]: 'Ukjent',
-  [KEY.ask_question_placeholder]: 'Spør et spørsmål',
 };
 
 /**
@@ -147,14 +166,35 @@ export const nn = {
     'eFormidling',
     'eSignering',
     'Kontakt- og reservasjonsregisteret',
-    'Digital postkasse til Innbyggere',
+    'Digital postkasse til innbyggjarar',
     'eInnsyn',
     'ELMA',
-    'Ansattporten',
+    'Tilsettportalen',
     'Peppol eGovernment',
     'Digital lommebok',
     'Anna',
   ],
+
+  // ==================== //
+  //   Solution titles    //
+  // ==================== //
+  [KEY.servicedesk]: 'Servicedesk',
+  [KEY.brukerstotte]: 'Brukerstøtte',
+  [KEY.unknown]: 'Ukjend',
+
+  // Common solutions (used in both brukerstøtte and servicedesk)
+  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_maskinporten]: 'Maskinporten',
+  [KEY.solution_eformidling]: 'eFormidling',
+  [KEY.solution_esignering]: 'eSignering',
+  [KEY.solution_kontakt_reservasjon]: 'Kontakt- og reservasjonsregisteret',
+  [KEY.solution_digital_postkasse]: 'Digital postkasse til innbyggjarar',
+  [KEY.solution_einnsyn]: 'eInnsyn',
+  [KEY.solution_elma]: 'ELMA',
+  [KEY.solution_ansattporten]: 'Tilsettportalen',
+  [KEY.solution_peppol]: 'Peppol eGovernment',
+  [KEY.solution_digital_lommebok]: 'Digital lommebok',
+  [KEY.solution_other]: 'Anna',
 
   // ==================== //
   //      Chat area       //
@@ -168,8 +208,6 @@ export const nn = {
   // ==================== //
   [KEY.api_connection_error]:
     'Beklagar, noko gjekk gale med sambandet til desKI API-et',
-  [KEY.chat_connection_error]:
-    'Beklagar, noko gjekk gale med sambandet til desKI 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -190,15 +228,6 @@ export const nn = {
   [KEY.go_to_homepage]: 'Gå til framsida',
   [KEY.remove_image]: 'Fjern bilete',
   [KEY.select_solution]: 'Velg løysing',
-
-  // ==================== //
-  //    New translations  //
-  // ==================== //
-  [KEY.main_question]: 'Kva kan eg hjelpe deg med i dag?',
-  [KEY.servicedesk]: 'Servicedesk',
-  [KEY.brukerstotte]: 'Brukerstøtte',
-  [KEY.unknown]: 'Ukjend',
-  [KEY.ask_question_placeholder]: 'Spør eit spørsmål',
 };
 
 /**
@@ -212,15 +241,36 @@ export const ns = {
     'Maskinporten',
     'eFormidling',
     'eSignering',
-    'Kontakt- og reservasjonsregistera',
-    'Digital postkasse til Innbyggere',
+    'Oktavuođa- ja várreregistara',
+    'Digitála poastakássa álbmogaide',
     'eInnsyn',
     'ELMA',
-    'Ansattporten',
+    'Bargoveahkaoaivi',
     'Peppol eGovernment',
-    'Digital lommebok',
-    'eará',
+    'Digitála báhppa',
+    'Eará',
   ],
+
+  // ==================== //
+  //   Solution titles    //
+  // ==================== //
+  [KEY.servicedesk]: 'Servicedesk',
+  [KEY.brukerstotte]: 'Geavaheddjiduorjun',
+  [KEY.unknown]: 'Dovdameahttun',
+
+  // Common solutions (used in both brukerstøtte and servicedesk)
+  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_maskinporten]: 'Maskinporten',
+  [KEY.solution_eformidling]: 'eFormidling',
+  [KEY.solution_esignering]: 'eSignering',
+  [KEY.solution_kontakt_reservasjon]: 'Oktavuođa- ja várreregistara',
+  [KEY.solution_digital_postkasse]: 'Digitála poastakássa álbmogaide',
+  [KEY.solution_einnsyn]: 'eInnsyn',
+  [KEY.solution_elma]: 'ELMA',
+  [KEY.solution_ansattporten]: 'Bargoveahkaoaivi',
+  [KEY.solution_peppol]: 'Peppol eGovernment',
+  [KEY.solution_digital_lommebok]: 'Digitála báhppa',
+  [KEY.solution_other]: 'Eará',
 
   // ==================== //
   //      Chat area       //
@@ -234,8 +284,6 @@ export const ns = {
   // ==================== //
   [KEY.api_connection_error]:
     'Ándagassii, juoga manai funet desKI api oktavuođain',
-  [KEY.chat_connection_error]:
-    'Ándagassii, juoga manai funet desKI oktavuođain 🤖.',
 
   // ==================== //
   //      UtilityBar      //
@@ -256,13 +304,4 @@ export const ns = {
   [KEY.go_to_homepage]: 'Mana ovdasiidui',
   [KEY.remove_image]: 'Váldde gova eret',
   [KEY.select_solution]: 'Vállje čovdosa',
-
-  // ==================== //
-  //    New translations  //
-  // ==================== //
-  [KEY.main_question]: 'Maid sáhtán veahkehit du odne?',
-  [KEY.servicedesk]: 'Servicedesk',
-  [KEY.brukerstotte]: 'Geavaheaddjiveahki',
-  [KEY.unknown]: 'Dovdameahttun',
-  [KEY.ask_question_placeholder]: 'Jeara gažaldaga',
 };

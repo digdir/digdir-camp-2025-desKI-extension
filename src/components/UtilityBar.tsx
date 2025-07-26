@@ -1,5 +1,3 @@
-import { Button } from '@digdir/designsystemet-react';
-import { EarthIcon, MoonIcon } from '@navikt/aksel-icons';
 import ColorModeSwitch from './ColorModeSwitch';
 import LanguageDropdown from './LanguageDropdown';
 

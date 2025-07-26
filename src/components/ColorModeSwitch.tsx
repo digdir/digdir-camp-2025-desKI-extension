@@ -1,9 +1,12 @@
 import { Button, Tooltip } from "@digdir/designsystemet-react";
 import { SunIcon, MoonIcon } from '@navikt/aksel-icons';
 import { ColorMode, useColorMode } from '../lib/settings';
+import { useTranslation } from 'react-i18next';
+import { KEY } from "../i18n/constants";
 
 
 export default function ColorModeSwitch() {
+  const { t } = useTranslation();
   const [colorMode, setColorMode] = useColorMode();
 
   // Fallback to system on first load — but only toggle light/dark manually
@@ -13,8 +16,14 @@ export default function ColorModeSwitch() {
   };
 
   const icon = colorMode === 'dark' ? <SunIcon /> : <MoonIcon />;
-  const tooltipText = colorMode === 'dark' ? "Switch to light mode" : "Switch to dark mode";
 
+  const translatedThemeLabel = t(
+    colorMode === 'dark' ? KEY.theme_light : KEY.theme_dark,
+  );
+
+  const tooltipText = t(KEY.theme_toggle, {
+    theme: translatedThemeLabel,
+  });
 
   return (
     <Tooltip content={tooltipText} placement="bottom">

@@ -1,4 +1,4 @@
-import { Dropdown, Tooltip } from '@digdir/designsystemet-react';
+import { Button, Dropdown, Tooltip } from '@digdir/designsystemet-react';
 import { EarthIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +28,7 @@ export default function LanguageDropdown() {
       <Tooltip content={t(KEY.language_switch)} placement="left">
         <div>
           <Dropdown.Trigger
-            className={"text-[var(--ds-color-main-text-default)] bg-transparent border-none hover:bg-[var(--ds-color-neutral-surface-hover)]"}
+            className={"bg-transparent text-[color:var(--ds-color-main-text)] p-0 text-lg hover:bg-[color:var(--ds-color-neutral-surface-hover)] hover:text-[color:var(--ds-color-main-text)] focus:outline-none border-none outline-none"}
             onClick={() => setOpen(!open)}
             aria-label={t(KEY.language_switch)}
           >

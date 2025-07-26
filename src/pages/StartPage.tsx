@@ -18,7 +18,7 @@ export default function StartPage() {
           </div>
 
           <h2 className="text-3xl font-light leading-snug text-[#002c54] mb-6">
-            {t(KEY.main_question)}
+            {t(KEY.initial_welcome)}
           </h2>
 
           <div className="flex flex-col gap-4 mt-16">
