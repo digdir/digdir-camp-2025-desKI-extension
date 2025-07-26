@@ -1,29 +1,22 @@
 import { Card } from '@digdir/designsystemet-react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { slugify } from '../utils/slugify';
+import { useTranslation } from 'react-i18next';
 
 type GridProps = {
-  solutions: string[]; // These should now be translation keys
+  solutions: string[];
   basePath: string;
 };
 
 export default function Grid({ solutions, basePath }: GridProps) {
   const { t } = useTranslation();
-
   return (
     <div className="grid grid-cols-3 lg:grid-cols-4 gap-3 w-full px-1 py-2 scale-[0.80] origin-top">
-      {solutions.map((titleKey) => {
-        // Translate the key to get the actual title for display
-        const title = t(titleKey);
-
-        // Use the translation key itself for the URL to keep it consistent across languages
-        // Remove the "solution_" prefix for cleaner URLs
-        const urlSlug = titleKey.replace('solution_', '');
-        const path = `${basePath}/${urlSlug}`;
+      {solutions.map((title) => {
+        const path = `${basePath}/${slugify(title.replace(/^solution/, ''))}`;
 
         return (
-          <Link to={path} key={titleKey} state={{solutions}}>
+          <Link to={path} key={title} state={{solutions}}>
             <Card
               variant="tinted"
               className="w-full aspect-square flex items-center justify-center text-center rounded-md border transition-colors duration-200
@@ -34,7 +27,7 @@ export default function Grid({ solutions, basePath }: GridProps) {
             >
               <Card.Block className="px-1">
                 <h3 className="text-[11px] font-medium leading-snug text-center text-[var(--ds-color-text-default)] break-words hyphens-auto">
-                  {title}
+                  {t(title)}
                 </h3>
               </Card.Block>
             </Card>

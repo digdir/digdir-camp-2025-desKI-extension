@@ -10,18 +10,18 @@ export const KEY = {
   unknown: 'unknown',
 
   // Common solutions
-  solution_id_porten: 'solution_id_porten',
+  solution_idporten: 'solution_idporten',
   solution_maskinporten: 'solution_maskinporten',
   solution_eformidling: 'solution_eformidling',
   solution_esignering: 'solution_esignering',
-  solution_kontakt_reservasjon: 'solution_kontakt_reservasjon',
-  solution_digital_postkasse: 'solution_digital_postkasse',
+  solution_kontaktreservasjon: 'solution_kontaktreservasjon',
+  solution_digitalpostkasse: 'solution_digitalpostkasse',
   solution_einnsyn: 'solution_einnsyn',
   solution_elma: 'solution_elma',
   solution_ansattporten: 'solution_ansattporten',
   solution_peppol: 'solution_peppol',
-  solution_digital_lommebok: 'solution_digital_lommebok',
-  solution_other: 'solution_other',
+  solution_digitallommebok: 'solution_digitallommebok',
+  solution_annet: 'solution_annet',
 
   // Chat area
   chat_placeholder: 'chat_placeholder',

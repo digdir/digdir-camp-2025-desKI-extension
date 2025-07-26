@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { DropdownMenu } from "../components/DropdownMenu";
+import { DropDownMenu } from "../components/DropdownMenu";
 import { UtilityBar } from "../components/UtilityBar";
 import { ChatBubble } from "../components/ChatBubble";
 import { Input } from "@digdir/designsystemet-react";
@@ -9,6 +9,8 @@ import { PaperplaneIcon } from "@navikt/aksel-icons";
 import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
 import { KEY } from '../i18n/constants';
+import { servicedeskSolutions } from "../data/servicedeskSolutions";
+import { brukerstøtteSolutions } from "../data/brukerstøtteSolutions";
 
 export default function ChatPage() {
   const { t } = useTranslation();
@@ -47,12 +49,14 @@ export default function ChatPage() {
     ? "/servicedesk"
     : "/brukerstøtte";
 
+  const isServicedesk = basePath === "/servicedesk";
+
   return (
     <div className="relative bg-[var(--ds-color-neutral-background-subtle)] w-full h-screen flex flex-col justify-between items-center">
       <div className="flex items-start justify-between w-full px-4 pt-4 mb-4">
         <div className="flex flex-row gap-1">
           <BackButton to={basePath} />
-          <DropdownMenu />
+          <DropDownMenu solutions={isServicedesk ? servicedeskSolutions : brukerstøtteSolutions} />
         </div>
         <div className="pt-1">
           <UtilityBar />

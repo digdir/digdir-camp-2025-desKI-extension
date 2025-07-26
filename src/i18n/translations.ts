@@ -25,22 +25,22 @@ export const en = {
   // ==================== //
   //   Solution titles    //
   // ==================== //
-  [KEY.servicedesk]: 'Service Desk',
+  [KEY.servicedesk]: 'Servicedesk',
   [KEY.brukerstotte]: 'User Support',
   [KEY.unknown]: 'Unknown',
 
-  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_idporten]: 'ID-porten',
   [KEY.solution_maskinporten]: 'Maskinporten',
   [KEY.solution_eformidling]: 'eFormidling',
   [KEY.solution_esignering]: 'eSignering',
-  [KEY.solution_kontakt_reservasjon]: 'Contact and Reservation Register',
-  [KEY.solution_digital_postkasse]: 'Digital Mailbox for Citizens',
+  [KEY.solution_kontaktreservasjon]: 'Contact and Reservation Register',
+  [KEY.solution_digitalpostkasse]: 'Digital Mailbox for Citizens',
   [KEY.solution_einnsyn]: 'eInnsyn',
   [KEY.solution_elma]: 'ELMA',
   [KEY.solution_ansattporten]: 'Employee Portal',
   [KEY.solution_peppol]: 'Peppol eGovernment',
-  [KEY.solution_digital_lommebok]: 'Digital Wallet',
-  [KEY.solution_other]: 'Other',
+  [KEY.solution_digitallommebok]: 'Digital Wallet',
+  [KEY.solution_annet]: 'Other',
 
   // ==================== //
   //      Chat area       //
@@ -106,18 +106,18 @@ export const nb = {
   [KEY.unknown]: 'Ukjent',
 
   // Common solutions (used in both brukerstøtte and servicedesk)
-  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_idporten]: 'ID-porten',
   [KEY.solution_maskinporten]: 'Maskinporten',
   [KEY.solution_eformidling]: 'eFormidling',
   [KEY.solution_esignering]: 'eSignering',
-  [KEY.solution_kontakt_reservasjon]: 'Kontakt- og reservasjonsregisteret',
-  [KEY.solution_digital_postkasse]: 'Digital postkasse til innbyggere',
+  [KEY.solution_kontaktreservasjon]: 'Kontakt- og reservasjonsregisteret',
+  [KEY.solution_digitalpostkasse]: 'Digital postkasse til innbyggere',
   [KEY.solution_einnsyn]: 'eInnsyn',
   [KEY.solution_elma]: 'ELMA',
   [KEY.solution_ansattporten]: 'Ansattporten',
   [KEY.solution_peppol]: 'Peppol eGovernment',
-  [KEY.solution_digital_lommebok]: 'Digital lommebok',
-  [KEY.solution_other]: 'Annet',
+  [KEY.solution_digitallommebok]: 'Digital lommebok',
+  [KEY.solution_annet]: 'Annet',
 
   // ==================== //
   //      Chat area       //
@@ -183,18 +183,18 @@ export const nn = {
   [KEY.unknown]: 'Ukjend',
 
   // Common solutions (used in both brukerstøtte and servicedesk)
-  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_idporten]: 'ID-porten',
   [KEY.solution_maskinporten]: 'Maskinporten',
   [KEY.solution_eformidling]: 'eFormidling',
   [KEY.solution_esignering]: 'eSignering',
-  [KEY.solution_kontakt_reservasjon]: 'Kontakt- og reservasjonsregisteret',
-  [KEY.solution_digital_postkasse]: 'Digital postkasse til innbyggjarar',
+  [KEY.solution_kontaktreservasjon]: 'Kontakt- og reservasjonsregisteret',
+  [KEY.solution_digitalpostkasse]: 'Digital postkasse til innbyggjarar',
   [KEY.solution_einnsyn]: 'eInnsyn',
   [KEY.solution_elma]: 'ELMA',
   [KEY.solution_ansattporten]: 'Tilsettportalen',
   [KEY.solution_peppol]: 'Peppol eGovernment',
-  [KEY.solution_digital_lommebok]: 'Digital lommebok',
-  [KEY.solution_other]: 'Anna',
+  [KEY.solution_digitallommebok]: 'Digital lommebok',
+  [KEY.solution_annet]: 'Anna',
 
   // ==================== //
   //      Chat area       //
@@ -259,18 +259,18 @@ export const ns = {
   [KEY.unknown]: 'Dovdameahttun',
 
   // Common solutions (used in both brukerstøtte and servicedesk)
-  [KEY.solution_id_porten]: 'ID-porten',
+  [KEY.solution_idporten]: 'ID-porten',
   [KEY.solution_maskinporten]: 'Maskinporten',
   [KEY.solution_eformidling]: 'eFormidling',
   [KEY.solution_esignering]: 'eSignering',
-  [KEY.solution_kontakt_reservasjon]: 'Oktavuođa- ja várreregistara',
-  [KEY.solution_digital_postkasse]: 'Digitála poastakássa álbmogaide',
+  [KEY.solution_kontaktreservasjon]: 'Oktavuođa- ja várreregistara',
+  [KEY.solution_digitalpostkasse]: 'Digitála poastakássa álbmogaide',
   [KEY.solution_einnsyn]: 'eInnsyn',
   [KEY.solution_elma]: 'ELMA',
   [KEY.solution_ansattporten]: 'Bargoveahkaoaivi',
   [KEY.solution_peppol]: 'Peppol eGovernment',
-  [KEY.solution_digital_lommebok]: 'Digitála báhppa',
-  [KEY.solution_other]: 'Eará',
+  [KEY.solution_digitallommebok]: 'Digitála báhppa',
+  [KEY.solution_annet]: 'Eará',
 
   // ==================== //
   //      Chat area       //
