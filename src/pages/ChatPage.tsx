@@ -19,27 +19,43 @@ export default function ChatPage() {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const handleSend = async () => {
-    if (!inputValue.trim()) return;
+  const handleSend = async (customMessage?: string, idToRemove?: number) => {
+  const messageToSend = customMessage ?? inputValue;
+  if (!messageToSend.trim()) return;
 
-    const userMessage = { sender: "user", message: inputValue } as const;
-    setMessages((prev) => [...prev, userMessage]);
-    setInputValue("");
-
-    try {
-      const reply = await sendMessageToDeski(inputValue);
-      const botReply = { sender: "bot", message: reply } as const;
-      setMessages((prev) => [...prev, botReply]);
-    } catch (error) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          sender: "bot",
-          message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
-        },
-      ]);
+  // Hvis redigert melding, fjern den gamle + svaret
+  if (typeof idToRemove === "number") {
+  setMessages((prev) => {
+    const newMessages = [...prev];
+    newMessages.splice(idToRemove, 1); // Fjern brukerens melding
+    if (prev[idToRemove + 1]?.sender === "bot") {
+      newMessages.splice(idToRemove, 1); // Fjern også svaret etterpå
     }
-  };
+    return newMessages;
+  });
+}
+
+
+  const userMessage = { sender: "user", message: messageToSend } as const;
+  setMessages((prev) => [...prev, userMessage]);
+
+  if (!customMessage) setInputValue(""); // Tøm input bare ved vanlig sending
+
+  try {
+    const reply = await sendMessageToDeski(messageToSend);
+    const botReply = { sender: "bot", message: reply } as const;
+    setMessages((prev) => [...prev, botReply]);
+  } catch (error) {
+    setMessages((prev) => [
+      ...prev,
+      {
+        sender: "bot",
+        message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
+      },
+    ]);
+  }
+};
+
 
   const basePath = location.pathname.startsWith("/servicedesk")
     ? "/servicedesk"
@@ -59,7 +75,14 @@ export default function ChatPage() {
 
       <div className="flex-1 w-full overflow-y-auto px-2 py-4 space-y-4">
         {messages.map((msg, idx) => (
-          <ChatBubble key={idx} sender={msg.sender} message={msg.message} />
+          <ChatBubble
+            key={idx}
+            sender={msg.sender}
+            message={msg.message}
+            id={idx}
+            onEdit={(newText) => handleSend(newText, idx)} 
+/>
+
         ))}
         <div ref={endRef} />
       </div>
@@ -73,7 +96,7 @@ export default function ChatPage() {
           className="w-full h-full rounded-[20px] pr-14 px-5 py-4 border-none shadow-md focus:outline-none focus:shadow-lg"
         />
         <button
-          onClick={handleSend}
+          onClick={() => handleSend()}
           className="absolute top-1/2 right-6 -translate-y-1/2 h-[70%] aspect-square rounded-full bg-transparent p-0 m-0 text-lg text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] flex items-center justify-center"
         >
           <PaperplaneIcon className="w-5 h-5" />

@@ -1,87 +1,86 @@
-import { useState } from "react";
-import { TabsIcon, PencilIcon, CheckmarkIcon, XMarkIcon } from "@navikt/aksel-icons";
-import { Button, Input, Tooltip } from "@digdir/designsystemet-react";
+import { TabsIcon, PencilIcon, XMarkIcon, BedIcon } from "@navikt/aksel-icons";
+import { Button, Tooltip } from "@digdir/designsystemet-react";
+import { PaperplaneIcon } from "@navikt/aksel-icons";
 
 interface MessageEditorProps {
-  initialText: string;
-  onSave?: (newText: string) => void;
+  onEditStart?: () => void;
+  onSave?: () => void;
+  onCancel?: () => void;
+  isEditing?: boolean;
   canEdit?: boolean;
+  showCopy?: boolean;
+  textToCopy: string;
 }
 
-export function MessageEditor({ initialText, onSave, canEdit = true }: MessageEditorProps) {
-  const [text, setText] = useState(initialText);
-  const [copied, setCopied] = useState(false);
-  const [editing, setEditing] = useState(false);
-
+export function MessageEditor({
+  onEditStart,
+  onSave,
+  onCancel,
+  isEditing = false,
+  canEdit = true,
+  showCopy = true,
+  textToCopy,
+}: MessageEditorProps) {
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      await navigator.clipboard.writeText(textToCopy);
     } catch (e) {
       console.error("Kunne ikke kopiere til utklippstavle", e);
     }
   };
 
-  const handleSave = () => {
-    if (onSave) onSave(text);
-    setEditing(false);
-  };
-
   return (
-    <div className="flex gap-2 items-center">
-      {/* Kopier-knapp */}
-      <Tooltip content={copied ? "Kopiert!" : "Kopier tekst"} placement="bottom">
-        <Button
-          variant="tertiary"
-          aria-label={copied ? "Tekst kopiert!" : "Kopier tekst"}
-          disabled={copied}
-          className="p-0 w-5 h-5 min-w-0 min-h-0 rounded hover:bg-[var(--ds-color-neutral-surface-hover)]"
-          onClick={handleCopy}
-        >
-          {copied ? <CheckmarkIcon className="w-4 h-4" /> : <TabsIcon className="w-4 h-4" />}
-        </Button>
-      </Tooltip>
+    <div className="flex gap-2 items-center text-xs text-gray-500">
+      {showCopy && (
+        <Tooltip content="Kopier tekst" placement="bottom">
+          <Button
+            variant="tertiary"
+            aria-label="Kopier tekst"
+            className="p-0 w-5 h-5 min-w-0 min-h-0"
+            onClick={handleCopy}
+          >
+            <TabsIcon className="w-4 h-4" />
+          </Button>
+        </Tooltip>
+      )}
 
-      {/* Rediger-knapp eller felt */}
-      {canEdit && !editing && (
-        <Tooltip content="Rediger tekst" placement="bottom">
+      {canEdit && !isEditing && (
+        <Tooltip content="Rediger i meldingsboblen" placement="bottom">
           <Button
             variant="tertiary"
             aria-label="Rediger tekst"
-            className="p-0 w-5 h-5 min-w-0 min-h-0 rounded hover:bg-[var(--ds-color-neutral-surface-hover)]"
-            onClick={() => setEditing(true)}
+            className="p-0 w-5 h-5 min-w-0 min-h-0"
+            onClick={onEditStart}
           >
             <PencilIcon className="w-4 h-4" />
           </Button>
         </Tooltip>
       )}
 
-      {editing && (
-        <div className="flex items-center gap-2">
-          <Input
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            className="w-48 text-[var(--ds-color-brand-base)]"
-          />
+      {canEdit && isEditing && (
+        <>
+          <Tooltip content="Send redigert melding" placement="bottom">
           <Button
-            variant="primary"
-            aria-label="Lagre endringer"
-            onClick={handleSave}
+            variant="tertiary"
+            aria-label="Send"
+            onClick={onSave}
+            className="p-0 w-5 h-5 min-w-0 min-h-0 text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)]"
           >
-            <CheckmarkIcon className="w-4 h-4" />
+            <PaperplaneIcon className="w-4 h-4" />
           </Button>
-          <Button
-            variant="secondary"
-            aria-label="Avbryt redigering"
-            onClick={() => {
-              setText(initialText); // tilbakestill
-              setEditing(false);
-            }}
-          >
-            <XMarkIcon className="w-4 h-4" />
-          </Button>
-        </div>
+        </Tooltip>
+
+          <Tooltip content="Avbryt redigering" placement="bottom">
+            <Button
+              variant="secondary"
+              aria-label="Avbryt"
+              onClick={onCancel}
+              className="w-5 h-5 p-0 min-w-0 min-h-0"
+            >
+              <XMarkIcon className="w-4 h-4" />
+            </Button>
+          </Tooltip>
+        </>
       )}
     </div>
   );
