@@ -41,7 +41,6 @@ export default function ChatPage() {
     setUploadedImages((prev) => prev.filter((_, i) => i !== index));
   };
 
-  // Her endret til å tømme hele logglisten for å lukke loggboksen
   const handleRemoveLogResult = () => {
     setLogResults([]);
   };
@@ -49,7 +48,6 @@ export default function ChatPage() {
   const handleSend = async () => {
     if (!inputValue.trim() && uploadedImages.length === 0) return;
 
-    // Prepare message with log results if any
     let messageWithLogs = inputValue;
     if (logResults.length > 0) {
       messageWithLogs += "\n\n--- Relevante logginnslag ---\n" + logResults.join("\n");
@@ -108,7 +106,6 @@ export default function ChatPage() {
 
       <div className="w-full p-2 flex flex-col gap-3 bg-[var(--ds-color-surface-neutral-subtle)] shadow-sm">
 
-        {/* Image upload and log results display */}
         <div className="ml-2">
           <ImageUpload
             uploadedImages={uploadedImages}
@@ -129,14 +126,13 @@ export default function ChatPage() {
           )}
         </div>
 
-        {/* Text input + send button */}
         <div className="relative mt-2">
           <ChatInputField
             inputValue={inputValue}
             onInputChange={setInputValue}
             onSend={handleSend}
             fileInputRef={fileInputRef}
-            onToggleSearchLogs={() => {}} // Will be handled in ChatInputField
+            onToggleSearchLogs={() => {}}
             onAddLogResults={(results) => setLogResults(prev => [...prev, ...results])}
           />
         </div>

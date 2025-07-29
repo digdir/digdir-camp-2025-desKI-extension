@@ -3,7 +3,7 @@ import { useRef } from 'react';
 
 type Props = {
   logs: string[];
-  onRemove?: () => void; // Endret til () => void, ikke med index
+  onRemove?: () => void;
   compact?: boolean;
 };
 
