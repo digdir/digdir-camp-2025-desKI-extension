@@ -1,21 +1,23 @@
 import { useState } from 'react';
 import { MessageEditor } from "./MessageEditor";
+import { LogResult } from "./LogResult";
 
 type Props = {
   message: string;
   sender: 'user' | 'bot';
   imageUrls?: string[];
+  logResults?: string[];
 };
 
-export function ChatBubble({ message, sender, imageUrls }: Props) {
+export function ChatBubble({ message, sender, imageUrls, logResults }: Props) {
   const isUser = sender === 'user';
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   return (
     <>
       <div className={`flex flex-col ${isUser ? 'items-end mr-8' : 'items-start ml-5'} mb-3`}>
-        {/* Bilder i chat-boblen */}
-        {Array.isArray(imageUrls) && imageUrls.length > 0 && (
+        {/* Images */}
+        {imageUrls?.length ? (
           <div className="flex flex-wrap gap-2 mb-2">
             {imageUrls.map((url, i) => (
               <button
@@ -32,10 +34,17 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
               </button>
             ))}
           </div>
-        )}
+        ) : null}
 
-        {/* Selve boblen */}
-        {message.trim() !== '' && (
+        {/* Logs */}
+        {logResults?.length ? (
+          <div className="mb-2">
+            <LogResult logs={logResults} />
+          </div>
+        ) : null}
+
+        {/* Chat bubble */}
+        {message.trim() && (
           <div
             className={`max-w-[60%] px-4 py-2 text-sm break-words ${
               isUser
@@ -47,13 +56,12 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
           </div>
         )}
 
-        {/* Editor under meldingen */}
         <div className={`mt-1 ${isUser ? 'mr-0' : 'ml-4'}`}>
           <MessageEditor initialText={message} />
         </div>
       </div>
 
-      {/* Fullskjermsvisning av bilde */}
+      {/* Fullscreen image view */}
       {fullscreenImage && (
         <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
           <button
