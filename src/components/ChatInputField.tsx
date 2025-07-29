@@ -1,5 +1,5 @@
 import { Button, Textarea, Input } from '@digdir/designsystemet-react';
-import { CameraIcon, PaperplaneIcon, ClipboardIcon } from '@navikt/aksel-icons';
+import { CameraIcon, PaperplaneIcon, ClipboardIcon, PlusIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { searchInLog } from '../services/SearchInLog';
 
@@ -22,6 +22,7 @@ export function ChatInputField({
   const [showLogSearch, setShowLogSearch] = useState(false);
   const [logSearchValue, setLogSearchValue] = useState("");
   const [logSearchResults, setLogSearchResults] = useState<string[]>([]);
+  const [showMenu, setShowMenu] = useState(false);
 
   const [noResults, setNoResults] = useState(false);
 
@@ -42,7 +43,7 @@ export function ChatInputField({
       setLogSearchResults([]);
       setNoResults(true);
     }
-};
+  };
 
   const handleAddLogResult = (result: string) => {
     onAddLogResults([result]);
@@ -91,7 +92,7 @@ export function ChatInputField({
             </button>
           </div>
 
-          <div className="flex gap-2 mb-3 ">
+          <div className="flex gap-2 mb-3">
             <Input
               type="text"
               placeholder="Skriv søkeord..."
@@ -103,7 +104,7 @@ export function ChatInputField({
                   handleLogSearch();
                 }
               }}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-0 bg-var(--ds-color-neutral-background-tinted) "
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-0 bg-var(--ds-color-neutral-background-tinted)"
             />
             <Button
               onClick={handleLogSearch}
@@ -128,69 +129,96 @@ export function ChatInputField({
                 </Button>
               </div>
 
-            {logSearchResults.map((result, index) => (
-              <div
-                key={index}
-                onClick={() => handleAddLogResult(result)}
-                className="p-2 text-xs bg-[var(--ds-color-neutral-background-tinted)]
-                          hover:bg-[#002c54] hover:text-white
-                          border border-[#002c54] rounded mb-1 cursor-pointer transition"
-              >
-                {result}
-              </div>
-            ))}
+              {logSearchResults.map((result, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleAddLogResult(result)}
+                  className="p-2 text-xs bg-[var(--ds-color-neutral-background-tinted)]
+                            hover:bg-[#002c54] hover:text-white
+                            border border-[#002c54] rounded mb-1 cursor-pointer transition"
+                >
+                  {result}
+                </div>
+              ))}
             </div>
           )}
 
           {noResults && (
-              <div className="text-sm text-gray-700 mt-2 text-center">
-                Fant ingen logginnslag for søket ditt.
-              </div>
-            )}
+            <div className="text-sm text-gray-700 mt-2 text-center">
+              Fant ingen logginnslag for søket ditt.
+            </div>
+          )}
         </div>
       )}
 
-      <Textarea
-        ref={textareaRef}
-        rows={1}
-        placeholder="Skriv en melding..."
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            onSend();
-          }
-        }}
-        aria-label="Chat-tekstfelt"
-        className="rounded-2xl p-6 pb-16 w-full max-h-80 border-none shadow-md resize-none focus:outline-none focus:ring-0"
-      />
+      {/* Tekstfelt-container med ikoner inni */}
+      <div className="relative w-full">
+        <Textarea
+          ref={textareaRef}
+          rows={1}
+          placeholder="Skriv en melding..."
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              onSend();
+            }
+          }}
+          aria-label="Chat-tekstfelt"
+          className="rounded-2xl p-6 pr-8 w-full max-h-160 border-none shadow-md resize-none focus:outline-none focus:ring-0"
+        />
 
-      <div className="absolute bottom-3 right-4 flex gap-2 bg-[var(--ds-color-neutral-surface-default)] rounded-bl-2xl">
-        <Button
-          variant="primary"
-          onClick={() => setShowLogSearch(!showLogSearch)}
-          aria-label="Søk i logg"
-          className="h-10 w-10 flex items-center justify-center bg-transparent text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] p-0 m-0"
-        >
-          <ClipboardIcon className="w-5 h-5" />
-        </Button>
-        <Button
-          variant="primary"
-          onClick={() => fileInputRef.current?.click()}
-          aria-label="Last opp bilde"
-          className="h-10 w-10 flex items-center justify-center bg-transparent text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] p-0 m-0"
-        >
-          <CameraIcon className="w-5 h-5" />
-        </Button>
-        <Button
-          variant="primary"
-          onClick={onSend}
-          aria-label="Send melding"
-          className="h-10 w-10 flex items-center justify-center bg-transparent text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] p-0 m-0"
-        >
-          <PaperplaneIcon className="w-5 h-5" />
-        </Button>
+        {/* Ikoner plassert inni feltet */}
+        <div className="absolute bottom-3 right-4 flex items-center">
+          {/* Pluss-knapp */}
+          <Button
+            variant="primary"
+            onClick={() => setShowMenu((prev) => !prev)}
+            aria-label="Åpne meny"
+            className="h-10 w-10 flex items-center justify-center bg-transparent text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] p-0 m-0"
+          >
+            <PlusIcon className="w-5 h-5" />
+          </Button>
+
+          {/* Dropdown-meny */}
+          {showMenu && (
+            <div className="absolute bottom-12 right-0 bg-gray-800/70 text-white rounded-lg shadow-lg flex flex-col py-2 z-50 w-44">
+              <Button
+                variant="primary"
+                onClick={() => {
+                  fileInputRef.current?.click();
+                  setShowMenu(false);
+                }}
+                aria-label="Last opp bilde"
+                className="flex items-center gap-2 px-4 py-2 text-sm bg-transparent hover:bg-gray-700 w-full justify-start"
+              >
+                <CameraIcon className="w-5 h-5" /> Last opp bilde
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  setShowLogSearch(true);
+                  setShowMenu(false);
+                }}
+                aria-label="Åpne loggsøk"
+                className="flex items-center gap-2 px-4 py-2 text-sm bg-transparent hover:bg-gray-700 w-full justify-start"
+              >
+                <ClipboardIcon className="w-5 h-5" /> Søk i logg
+              </Button>
+            </div>
+          )}
+
+            {/* Send-knapp */}
+            <Button
+              variant="primary"
+              onClick={onSend}
+              aria-label="Send melding"
+              className="h-10 w-10 flex items-center justify-center bg-transparent text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] p-0 m-0"
+            >
+              <PaperplaneIcon className="w-5 h-5" />
+            </Button>
+        </div>
       </div>
     </div>
   );
