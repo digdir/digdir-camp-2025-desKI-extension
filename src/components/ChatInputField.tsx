@@ -45,7 +45,7 @@ export function ChatInputField({
           }
         }}
         aria-label="Chat-tekstfelt"
-        className="rounded-2xl p-6 pb-16 w-full max-h-80 border-none shadow-md focus:shadow-lg resize-none"
+        className="rounded-2xl p-6 pb-16 w-full max-h-80 border-none shadow-md resize-none focus:outline-none focus:ring-0"
       />
 
       <div className="absolute bottom-3 right-4 flex gap-2 bg-[var(--ds-color-neutral-surface-default)] rounded-bl-2xl">
