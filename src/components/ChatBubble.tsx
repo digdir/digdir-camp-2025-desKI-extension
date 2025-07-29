@@ -12,11 +12,31 @@ type Props = {
 export function ChatBubble({ message, sender, imageUrls, logResults }: Props) {
   const isUser = sender === 'user';
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const [showLogs, setShowLogs] = useState(false);
 
   return (
     <>
       <div className={`flex flex-col ${isUser ? 'items-end mr-8' : 'items-start ml-5'} mb-3`}>
-        {/* Images */}
+        {/* Knapper for loggvisning */}
+        {logResults?.length ? (
+          <div className={`mt-2 ${isUser ? 'text-right' : 'text-left'} max-w-[60%]`}>
+            <button
+              type="button"
+              onClick={() => setShowLogs((prev) => !prev)}
+              className="text-xs text-blue-500 hover:underline"
+            >
+              {showLogs ? 'Skjul logg' : `Vis ${logResults.length} logginnslag`}
+            </button>
+
+            {showLogs && (
+              <div className="mt-2 border border-gray-300 rounded-md p-2 bg-gray-50">
+                <LogResult logs={logResults} compact />
+              </div>
+            )}
+          </div>
+        ) : null}
+
+        {/* Bilder */}
         {imageUrls?.length ? (
           <div className="flex flex-wrap gap-2 mb-2">
             {imageUrls.map((url, i) => (
@@ -36,14 +56,7 @@ export function ChatBubble({ message, sender, imageUrls, logResults }: Props) {
           </div>
         ) : null}
 
-        {/* Logs */}
-        {logResults?.length ? (
-          <div className="mb-2">
-            <LogResult logs={logResults} />
-          </div>
-        ) : null}
-
-        {/* Chat bubble */}
+        {/* Chat-boble */}
         {message.trim() && (
           <div
             className={`max-w-[60%] px-4 py-2 text-sm break-words ${
@@ -56,12 +69,13 @@ export function ChatBubble({ message, sender, imageUrls, logResults }: Props) {
           </div>
         )}
 
+        {/* Inline editor */}
         <div className={`mt-1 ${isUser ? 'mr-0' : 'ml-4'}`}>
           <MessageEditor initialText={message} />
         </div>
       </div>
 
-      {/* Fullscreen image view */}
+      {/* Fullscreen bildevisning */}
       {fullscreenImage && (
         <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
           <button

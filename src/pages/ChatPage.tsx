@@ -46,39 +46,36 @@ export default function ChatPage() {
   };
 
   const handleSend = async () => {
-    if (!inputValue.trim() && uploadedImages.length === 0) return;
+  if (!inputValue.trim() && uploadedImages.length === 0 && logResults.length === 0) return;
 
-    let messageWithLogs = inputValue;
-    if (logResults.length > 0) {
-      messageWithLogs += "\n\n--- Relevante logginnslag ---\n" + logResults.join("\n");
-    }
+  const userMessage = {
+    sender: "user",
+    message: inputValue,
+    imageUrls: uploadedImages,
+    logResults: logResults.length > 0 ? logResults : undefined,
+  } as const;
 
-    const userMessage = {
-      sender: "user",
-      message: inputValue,
-      imageUrls: uploadedImages,
-      logResults: logResults.length > 0 ? logResults : undefined
-    } as const;
+  setMessages((prev) => [...prev, userMessage]);
+  setInputValue("");
+  setUploadedImages([]);
+  setLogResults([]);
 
-    setMessages((prev) => [...prev, userMessage]);
-    setInputValue("");
-    setUploadedImages([]);
-    setLogResults([]);
-
-    try {
-      const reply = await sendMessageToDeski(messageWithLogs);
-      const botReply = { sender: "bot", message: reply } as const;
-      setMessages((prev) => [...prev, botReply]);
-    } catch (error) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          sender: "bot",
-          message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
-        },
-      ]);
-    }
-  };
+  try {
+    const reply = await sendMessageToDeski(
+      inputValue + (logResults.length > 0 ? "\n\n[Loggvedlegg: " + logResults.join(", ") + "]" : "")
+    );
+    const botReply = { sender: "bot", message: reply } as const;
+    setMessages((prev) => [...prev, botReply]);
+  } catch (error) {
+    setMessages((prev) => [
+      ...prev,
+      {
+        sender: "bot",
+        message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
+      },
+    ]);
+  }
+};
 
   const basePath = location.pathname.startsWith("/servicedesk")
                   ? "/servicedesk"
