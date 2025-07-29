@@ -102,7 +102,7 @@ export function ChatInputField({
             />
             <Button
               onClick={handleLogSearch}
-              className="px-4 py-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600"
+              className="px-4 py-2 bg-[#002c54] text-white text-sm rounded-md hover:bg-[#002c54]/80"
             >
               Søk
             </Button>
@@ -112,26 +112,28 @@ export function ChatInputField({
             <div className="max-h-40 overflow-y-auto">
               <div className="flex items-center gap-2 mb-2 text-xs text-gray-600">
                 <span>
-                  Fant {logSearchResults.length} treff - klikk for å legge til:
+                  Fant {logSearchResults.length} treff - klikk for å legge til.
                 </span>
                 <Button
                   onClick={handleSelectAll}
-                  className="text-xs text-blue-600 hover:underline h-auto p-0 bg-transparent shadow-none"
+                  className="px-4 py-2 bg-[#002c54] text-white text-sm rounded-md hover:bg-[#002c54]/80"
                   variant="tertiary"
                 >
                   Velg alle
                 </Button>
               </div>
 
-              {logSearchResults.map((result, index) => (
-                <div
-                  key={index}
-                  onClick={() => handleAddLogResult(result)}
-                  className="p-2 text-xs bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded mb-1 cursor-pointer"
-                >
-                  {result}
-                </div>
-              ))}
+            {logSearchResults.map((result, index) => (
+              <div
+                key={index}
+                onClick={() => handleAddLogResult(result)}
+                className="p-2 text-xs bg-[var(--ds-color-neutral-background-tinted)]
+                          hover:bg-[#002c54] hover:text-white
+                          border border-[#002c54] rounded mb-1 cursor-pointer transition"
+              >
+                {result}
+              </div>
+            ))}
             </div>
           )}
         </div>

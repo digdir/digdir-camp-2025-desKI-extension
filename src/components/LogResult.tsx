@@ -11,13 +11,13 @@ export function LogResult({ logs, onRemove, compact = false }: Props) {
 
   return (
     <div
-      className="relative w-full bg-[var(--ds-color-surface-neutral-subtle)]
-                 border border-[var(--ds-color-border-subtle)] rounded-lg
+      className="relative w-full bg-[var(--ds-color-neutral-background-tinted)]
+                 border border-[#002c54] rounded-lg
                  p-4 text-sm text-[var(--ds-color-text-default)] shadow-sm
                  max-h-48 overflow-y-auto"
     >
       <div className="flex justify-between items-center mb-2">
-        <div className="font-semibold text-[var(--ds-color-text-subtle)]">
+        <div className="font-semibold text-[#002c54]">
           Logginnslag ({logs.length})
         </div>
         {onRemove && (
@@ -25,19 +25,16 @@ export function LogResult({ logs, onRemove, compact = false }: Props) {
             type="button"
             onClick={onRemove}
             aria-label="Fjern alle logginnslag"
-            className="w-5 h-5 flex items-center justify-center rounded-full hover:bg-[var(--ds-color-surface-hover)] cursor-pointer"
+            className="w-5 h-5 flex items-center justify-center rounded-full hover:bg-[#002c54]/40 cursor-pointer transition"
           >
-            <XMarkIcon className="w-4 h-4 text-[var(--ds-color-text-subtle)]" />
+            <XMarkIcon className="w-4 h-4 text-[#002c54]" />
           </button>
         )}
       </div>
 
-      <pre
-        className="whitespace-pre-wrap break-words leading-snug"
-      >
+      <pre className="whitespace-pre-wrap break-words leading-snug">
         {logs.join('\n\n')}
       </pre>
     </div>
   );
 }
-``

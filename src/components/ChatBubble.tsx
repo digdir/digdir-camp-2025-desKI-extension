@@ -23,7 +23,7 @@ export function ChatBubble({ message, sender, imageUrls, logResults }: Props) {
             <button
               type="button"
               onClick={() => setShowLogs((prev) => !prev)}
-              className="text-xs text-blue-500 hover:underline"
+              className="text-xs text-[#002c54] hover:underline"
             >
               {showLogs ? 'Skjul logg' : `Vis ${logResults.length} logginnslag`}
             </button>
