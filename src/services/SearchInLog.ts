@@ -1,4 +1,3 @@
-
 export const searchInLog = async (query: string) => {
   try {
     const res = await fetch("/data/log1.txt");
@@ -9,7 +8,7 @@ export const searchInLog = async (query: string) => {
       .filter((line) => line.toLowerCase().includes(query.toLowerCase()));
 
     return matches.length
-      ? `Fant ${matches.length} treff:\n${matches.slice(0, 5).join("\n")}`
+      ? `Fant ${matches.length} treff:\n${matches.join("\n")}`
       : "Ingen treff i logg.";
   } catch (err) {
     return "Kunne ikke lese loggfilen.";

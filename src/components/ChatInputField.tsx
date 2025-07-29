@@ -31,8 +31,7 @@ export function ChatInputField({
     try {
       const result = await searchInLog(logSearchValue);
       if (result !== "Ingen treff i logg." && result !== "Kunne ikke lese loggfilen.") {
-        // Parse the results - extract the actual log lines
-        const lines = result.split('\n').slice(1); // Skip the "Fant X treff:" line
+        const lines = result.split('\n').slice(1); // Hopp over "Fant X treff:"-linjen
         setLogSearchResults(lines);
       } else {
         setLogSearchResults([]);
@@ -44,7 +43,6 @@ export function ChatInputField({
 
   const handleAddLogResult = (result: string) => {
     onAddLogResults([result]);
-    // Remove from search results
     setLogSearchResults(prev => prev.filter(r => r !== result));
   };
 
@@ -58,7 +56,7 @@ export function ChatInputField({
     onInputChange(e.target.value);
   };
 
-  // Auto-resize textarea as user types
+  // Auto-resize textarea
   useEffect(() => {
     const el = textareaRef.current;
     if (!el) return;
@@ -107,7 +105,22 @@ export function ChatInputField({
 
           {logSearchResults.length > 0 && (
             <div className="max-h-40 overflow-y-auto">
-              <div className="text-xs text-gray-600 mb-2">Fant {logSearchResults.length} treff - klikk for å legge til:</div>
+              <div className="flex items-center gap-2 mb-2 text-xs text-gray-600">
+                <span>
+                  Fant {logSearchResults.length} treff - klikk for å legge til:
+                </span>
+                <Button
+                  onClick={() => {
+                    onAddLogResults(logSearchResults);
+                    setLogSearchResults([]); // Tøm listen etter valg
+                  }}
+                  className="text-xs text-blue-600 hover:underline h-auto p-0 bg-transparent shadow-none"
+                  variant="tertiary"
+                >
+                  Velg alle
+                </Button>
+              </div>
+
               {logSearchResults.map((result, index) => (
                 <div
                   key={index}
