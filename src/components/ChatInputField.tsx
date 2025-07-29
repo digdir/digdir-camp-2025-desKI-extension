@@ -23,6 +23,8 @@ export function ChatInputField({
   const [logSearchValue, setLogSearchValue] = useState("");
   const [logSearchResults, setLogSearchResults] = useState<string[]>([]);
 
+  const [noResults, setNoResults] = useState(false);
+
   const handleLogSearch = async () => {
     if (!logSearchValue.trim()) return;
 
@@ -31,13 +33,16 @@ export function ChatInputField({
       if (result !== "Ingen treff i logg." && result !== "Kunne ikke lese loggfilen.") {
         const lines = result.split('\n').slice(1);
         setLogSearchResults(lines);
+        setNoResults(lines.length === 0);
       } else {
         setLogSearchResults([]);
+        setNoResults(true);
       }
     } catch (error) {
       setLogSearchResults([]);
+      setNoResults(true);
     }
-  };
+};
 
   const handleAddLogResult = (result: string) => {
     onAddLogResults([result]);
@@ -136,6 +141,12 @@ export function ChatInputField({
             ))}
             </div>
           )}
+
+          {noResults && (
+              <div className="text-sm text-text-gray-700 mt-2 justify-center">
+                Fant ingen logginnslag for søket ditt.
+              </div>
+            )}
         </div>
       )}
 
