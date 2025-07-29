@@ -8,7 +8,6 @@ type Props = {
   onInputChange: (value: string) => void;
   onSend: () => void;
   fileInputRef: React.RefObject<HTMLInputElement | null>;
-  onToggleSearchLogs: () => void;
   onAddLogResults: (results: string[]) => void;
 };
 
@@ -17,7 +16,6 @@ export function ChatInputField({
   onInputChange,
   onSend,
   fileInputRef,
-  onToggleSearchLogs,
   onAddLogResults,
 }: Props) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -31,7 +29,7 @@ export function ChatInputField({
     try {
       const result = await searchInLog(logSearchValue);
       if (result !== "Ingen treff i logg." && result !== "Kunne ikke lese loggfilen.") {
-        const lines = result.split('\n').slice(1); // Hopp over "Fant X treff:"-linjen
+        const lines = result.split('\n').slice(1);
         setLogSearchResults(lines);
       } else {
         setLogSearchResults([]);
@@ -46,6 +44,14 @@ export function ChatInputField({
     setLogSearchResults(prev => prev.filter(r => r !== result));
   };
 
+  const handleSelectAll = () => {
+    if (logSearchResults.length === 0) return;
+    onAddLogResults(logSearchResults);
+    setLogSearchResults([]);
+    setShowLogSearch(false);
+    setLogSearchValue("");
+  };
+
   const handleCloseLogSearch = () => {
     setShowLogSearch(false);
     setLogSearchValue("");
@@ -56,7 +62,6 @@ export function ChatInputField({
     onInputChange(e.target.value);
   };
 
-  // Auto-resize textarea
   useEffect(() => {
     const el = textareaRef.current;
     if (!el) return;
@@ -110,10 +115,7 @@ export function ChatInputField({
                   Fant {logSearchResults.length} treff - klikk for å legge til:
                 </span>
                 <Button
-                  onClick={() => {
-                    onAddLogResults(logSearchResults);
-                    setLogSearchResults([]); // Tøm listen etter valg
-                  }}
+                  onClick={handleSelectAll}
                   className="text-xs text-blue-600 hover:underline h-auto p-0 bg-transparent shadow-none"
                   variant="tertiary"
                 >

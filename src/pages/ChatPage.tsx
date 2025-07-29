@@ -81,8 +81,8 @@ export default function ChatPage() {
   };
 
   const basePath = location.pathname.startsWith("/servicedesk")
-    ? "/servicedesk"
-    : "/brukerstøtte";
+                  ? "/servicedesk"
+                    : "/brukerstøtte";
 
   return (
     <div className="relative bg-[var(--ds-color-neutral-background-subtle)] w-full h-screen flex flex-col justify-between items-center">
@@ -105,7 +105,6 @@ export default function ChatPage() {
       </div>
 
       <div className="w-full p-2 flex flex-col gap-3 bg-[var(--ds-color-surface-neutral-subtle)] shadow-sm">
-
         <div className="ml-2">
           <ImageUpload
             uploadedImages={uploadedImages}
@@ -132,7 +131,6 @@ export default function ChatPage() {
             onInputChange={setInputValue}
             onSend={handleSend}
             fileInputRef={fileInputRef}
-            onToggleSearchLogs={() => {}}
             onAddLogResults={(results) => setLogResults(prev => [...prev, ...results])}
           />
         </div>
