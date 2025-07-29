@@ -79,7 +79,7 @@ export function ChatInputField({
     <div className="relative w-full flex flex-col">
       {/* Log search overlay */}
       {showLogSearch && (
-        <div className="absolute bottom-full left-0 right-0 mb-2 bg-gray-100 border border-gray-300 rounded-lg shadow-lg p-4 ">
+        <div className="absolute bottom-full left-0 right-0 mb-2 bg-gray-100 border border-gray-300 rounded-lg shadow-lg p-4 min-h-36">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-gray-700">Søk i logg</h3>
             <button
@@ -143,7 +143,7 @@ export function ChatInputField({
           )}
 
           {noResults && (
-              <div className="text-sm text-text-gray-700 mt-2 justify-center">
+              <div className="text-sm text-gray-700 mt-2 text-center">
                 Fant ingen logginnslag for søket ditt.
               </div>
             )}
