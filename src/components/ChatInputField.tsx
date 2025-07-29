@@ -1,5 +1,5 @@
-import { Button, Textarea } from '@digdir/designsystemet-react';
-import { CameraIcon, PaperplaneIcon } from '@navikt/aksel-icons';
+import { Button, Textarea, Input } from '@digdir/designsystemet-react';
+import { CameraIcon, PaperplaneIcon, ClipboardIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { searchInLog } from '../services/SearchInLog';
 
@@ -74,7 +74,7 @@ export function ChatInputField({
     <div className="relative w-full flex flex-col">
       {/* Log search overlay */}
       {showLogSearch && (
-        <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-10">
+        <div className="absolute bottom-full left-0 right-0 mb-2 bg-gray-100 border border-gray-300 rounded-lg shadow-lg p-4 ">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-gray-700">Søk i logg</h3>
             <button
@@ -86,8 +86,8 @@ export function ChatInputField({
             </button>
           </div>
 
-          <div className="flex gap-2 mb-3">
-            <input
+          <div className="flex gap-2 mb-3 ">
+            <Input
               type="text"
               placeholder="Skriv søkeord..."
               value={logSearchValue}
@@ -98,7 +98,7 @@ export function ChatInputField({
                   handleLogSearch();
                 }
               }}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-0 bg-var(--ds-color-neutral-background-tinted) "
             />
             <Button
               onClick={handleLogSearch}
@@ -160,7 +160,7 @@ export function ChatInputField({
           aria-label="Søk i logg"
           className="h-10 w-10 flex items-center justify-center bg-transparent text-[var(--ds-color-neutral-text-default)] hover:text-[var(--ds-color-neutral-text-subtle)] p-0 m-0"
         >
-          📋
+          <ClipboardIcon className="w-5 h-5" />
         </Button>
         <Button
           variant="primary"
