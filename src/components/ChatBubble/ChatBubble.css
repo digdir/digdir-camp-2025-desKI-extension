@@ -1,0 +1,42 @@
+/* ChatBubble.css */
+
+.chat-bubble-container {
+  display: flex;
+  margin-bottom: 0.5rem; 
+}
+
+.chat-bubble-container.user {
+  justify-content: flex-end;
+}
+
+.chat-bubble-container.bot {
+  justify-content: flex-start;
+}
+
+.chat-bubble {
+  max-width: 60%;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem; 
+  word-break: break-word;
+}
+
+.chat-bubble.user {
+  background-color: var(--ds-color-brand1-base-default);
+  color: var(--ds-color-brand1-background-default);
+  border-radius: 20px 20px 4px 20px;
+  align-self: flex-end;
+}
+[data-color-scheme="dark"] .chat-bubble.user {
+  color: var(--ds-color-brand1-text-default);
+  
+}
+
+.chat-bubble.bot {
+  background-color: transparent;
+  color: var(--neutral-11);
+  align-self: flex-start;
+}
+
+[data-color-scheme="dark"] .chat-bubble.bot {
+  color: var(--ds-color-text-default);
+}

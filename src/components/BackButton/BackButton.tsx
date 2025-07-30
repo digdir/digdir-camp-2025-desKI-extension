@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeftIcon } from '@navikt/aksel-icons';
 import { Button } from '@digdir/designsystemet-react';
+import './BackButton.css';
 
 interface BackButtonProps {
   to?: string;
@@ -23,9 +24,9 @@ export function BackButton({ to }: BackButtonProps) {
     <Button
       variant="secondary"
       onClick={handleClick}
-      className="flex items-center gap-1 px-3 py-2 rounded-full"
+      className="back-button"
     >
-      <ArrowLeftIcon className="w-6 h-6" aria-hidden />
+      <ArrowLeftIcon className="back-button-icon" aria-hidden />
     </Button>
   );
 }
