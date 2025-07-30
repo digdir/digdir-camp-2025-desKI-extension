@@ -152,7 +152,7 @@ export function ChatInputField({
         </div>
       )}
 
-      <div className="ml-2 w-60">
+      <div className="ml-2 w-44">
         <ColoredCheckbox
           label="Inkluder hele loggen"
           checked={includeAllLogs}
