@@ -31,19 +31,15 @@ export function ChatInputField({
 
     try {
       const result = await searchInLog(logSearchValue);
-      if (result !== "Ingen treff i logg." && result !== "Kunne ikke lese loggfilen.") {
-        const lines = result.split('\n').slice(1);
-        setLogSearchResults(lines);
-        setNoResults(lines.length === 0);
-      } else {
-        setLogSearchResults([]);
-        setNoResults(true);
-      }
+      setLogSearchResults(result);
+      setNoResults(result.length === 0);
     } catch (error) {
+      console.error("Loggsøk feilet:", error);
       setLogSearchResults([]);
       setNoResults(true);
     }
   };
+
 
   const handleAddLogResult = (result: string) => {
     onAddLogResults([result]);

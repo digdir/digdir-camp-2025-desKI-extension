@@ -1,10 +1,12 @@
+
 // src/api/chatApi.ts
-export async function sendMessageToDeski(message: string): Promise<string> {
+export async function sendMessageToDeski(message: string, logs?: string): Promise<string> {
   const payload = {
     question: message,
     context: {
       additionalProp1: {}
-    }
+    },
+    logs: logs,
   };
 
   const response = await fetch("http://localhost:8000/servicedesk", {

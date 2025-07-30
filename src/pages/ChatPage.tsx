@@ -62,7 +62,7 @@ export default function ChatPage() {
 
   try {
     const reply = await sendMessageToDeski(
-      inputValue + (logResults.length > 0 ? "\n\n[Loggvedlegg: " + logResults.join(", ") + "]" : "")
+      inputValue, (logResults.length > 0 ? "\n\n[Loggvedlegg: " + logResults.join(", ") + "]" : "")
     );
     const botReply = { sender: "bot", message: reply } as const;
     setMessages((prev) => [...prev, botReply]);

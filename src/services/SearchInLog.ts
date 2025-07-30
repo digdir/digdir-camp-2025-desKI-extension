@@ -1,16 +1,22 @@
-export const searchInLog = async (query: string) => {
+export const searchInLog = async (query: string): Promise<string[]> => {
   try {
     const res = await fetch("/data/log1.txt");
     const text = await res.text();
 
-    const matches = text
-      .split("\n")
-      .filter((line) => line.toLowerCase().includes(query.toLowerCase()));
+    // Del opp i blokker per loggobjekt
+    const objectChunks = text
+      .split(/\n\s*{\s*"_index"\s*:/)
+      .filter(Boolean)
+      .map((chunk) => `{ "_index":${chunk.trim().replace(/,$/, "")}`);
 
-    return matches.length
-      ? `Fant ${matches.length} treff:\n${matches.join("\n")}`
-      : "Ingen treff i logg.";
+    // Filtrer på søkeord
+    const matches = objectChunks.filter((obj) =>
+      obj.toLowerCase().includes(query.toLowerCase())
+    );
+
+    return matches;
   } catch (err) {
-    return "Kunne ikke lese loggfilen.";
+    console.error("Feil under loggsøk:", err);
+    return [];
   }
 };
