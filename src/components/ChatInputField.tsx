@@ -2,6 +2,7 @@ import { Button, Textarea, Input } from '@digdir/designsystemet-react';
 import { CameraIcon, PaperplaneIcon, ClipboardIcon, PlusIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { searchInLog } from '../services/SearchInLog';
+import { ColoredCheckbox } from './ColoredCheckBox';
 
 type Props = {
   inputValue: string;
@@ -9,6 +10,8 @@ type Props = {
   onSend: () => void;
   fileInputRef: React.RefObject<HTMLInputElement | null>;
   onAddLogResults: (results: string[]) => void;
+  onIncludeAllLogsToggle: (checked: boolean) => void;
+  includeAllLogs: boolean;
 };
 
 export function ChatInputField({
@@ -17,6 +20,8 @@ export function ChatInputField({
   onSend,
   fileInputRef,
   onAddLogResults,
+  onIncludeAllLogsToggle,
+  includeAllLogs,
 }: Props) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [showLogSearch, setShowLogSearch] = useState(false);
@@ -146,6 +151,15 @@ export function ChatInputField({
           )}
         </div>
       )}
+
+      <div className="ml-2 w-60">
+        <ColoredCheckbox
+          label="Inkluder hele loggen"
+          checked={includeAllLogs}
+          onChange={onIncludeAllLogsToggle}
+        />
+      </div>
+
 
       {/* Tekstfelt-container med ikoner inni */}
       <div className="relative w-full">

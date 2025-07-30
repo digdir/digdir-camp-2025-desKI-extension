@@ -25,10 +25,10 @@ export function ColoredCheckbox({
           border border-primary
           bg-[var(--ds-color-surface-default)]
           transition-colors duration-150
-          checked:bg-[var(--brand1-12)]
-          checked:text-primary
+          checked:bg-[#002c54]
+          checked:text-white/80
           checked:flex checked:items-center checked:justify-center
-          checked:before:content-['✔'] checked:before:text-primary checked:before:text-sm
+          checked:before:content-['✔'] checked:before:text-white checked:before:text-sm
           cursor-pointer
         "
       />

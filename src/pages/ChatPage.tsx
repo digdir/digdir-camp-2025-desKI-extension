@@ -19,6 +19,8 @@ export default function ChatPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
   const [logResults, setLogResults] = useState<string[]>([]);
+  const [includeAllLogs, setIncludeAllLogs] = useState(false);
+
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -46,36 +48,55 @@ export default function ChatPage() {
   };
 
   const handleSend = async () => {
-  if (!inputValue.trim() && uploadedImages.length === 0 && logResults.length === 0) return;
+    if (!inputValue.trim() && uploadedImages.length === 0 && logResults.length === 0 && !includeAllLogs) return;
 
-  const userMessage = {
-    sender: "user",
-    message: inputValue,
-    imageUrls: uploadedImages,
-    logResults: logResults.length > 0 ? logResults : undefined,
-  } as const;
+    let allLogs: string[] = [];
 
-  setMessages((prev) => [...prev, userMessage]);
-  setInputValue("");
-  setUploadedImages([]);
-  setLogResults([]);
+    if (includeAllLogs) {
+      try {
+        const res = await fetch("/data/log1.txt");
+        const text = await res.text();
 
-  try {
-    const reply = await sendMessageToDeski(
-      inputValue, (logResults.length > 0 ? "\n\n[Loggvedlegg: " + logResults.join(", ") + "]" : "")
-    );
-    const botReply = { sender: "bot", message: reply } as const;
-    setMessages((prev) => [...prev, botReply]);
-  } catch (error) {
-    setMessages((prev) => [
-      ...prev,
-      {
-        sender: "bot",
-        message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
-      },
-    ]);
-  }
-};
+        allLogs = text
+          .split(/\n\s*{\s*"_index"\s*:/)
+          .filter(Boolean)
+          .map((chunk) => `{ "_index":${chunk.trim().replace(/,$/, "")}`);
+      } catch (err) {
+        console.error("Kunne ikke laste hele loggen:", err);
+      }
+    }
+
+    const logsToSend = [...logResults, ...allLogs];
+
+    const userMessage = {
+      sender: "user",
+      message: inputValue,
+      imageUrls: uploadedImages,
+      logResults: logsToSend.length > 0 ? logsToSend : undefined,
+    } as const;
+
+    setMessages((prev) => [...prev, userMessage]);
+    setInputValue("");
+    setUploadedImages([]);
+    setLogResults([]);
+
+    try {
+      const reply = await sendMessageToDeski(
+        inputValue,
+        logsToSend.length > 0 ? `\n\n[Loggvedlegg: ${logsToSend.join(", ")}]` : ""
+      );
+      const botReply = { sender: "bot", message: reply } as const;
+      setMessages((prev) => [...prev, botReply]);
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "bot",
+          message: "Beklager, noe gikk galt med forbindelsen til desKI 🤖.",
+        },
+      ]);
+    }
+  };
 
   const basePath = location.pathname.startsWith("/servicedesk")
                   ? "/servicedesk"
@@ -129,6 +150,8 @@ export default function ChatPage() {
             onSend={handleSend}
             fileInputRef={fileInputRef}
             onAddLogResults={(results) => setLogResults(prev => [...prev, ...results])}
+            onIncludeAllLogsToggle={setIncludeAllLogs}
+            includeAllLogs={includeAllLogs}
           />
         </div>
       </div>
