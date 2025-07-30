@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { slugify } from '../../utils/slugify';
-import './DropDownMenu.css';
+import './DropdownMenu.css';
 
 interface DropDownMenuProps {
   solutions: string[];
