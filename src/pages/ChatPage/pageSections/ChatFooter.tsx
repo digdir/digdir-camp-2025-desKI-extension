@@ -1,6 +1,6 @@
-import { ImageUpload } from "../../components/ImageUpload";
-import { LogResult } from "../../components/LogResult";
-import { ChatInputField } from "../../components/ChatInputField";
+import { ImageUpload } from "../../../components/ImageUpload";
+import { LogResult } from "../../../components/LogResult";
+import { ChatInputField } from "../../../components/ChatInputField";
 import { RefObject } from "react";
 
 interface ChatFooterProps {

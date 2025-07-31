@@ -1,5 +1,5 @@
 import { useCallback, useState, useRef, useEffect } from "react";
-import { ChatMessage } from "../types";
+import { ChatMessage } from "../types/types";
 import { sendMessageToDeski } from "../../../api/chatApi";
 
 export function useChatMessages() {

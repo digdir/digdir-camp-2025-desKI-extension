@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import { ChatHeader } from "./ChatHeader";
-import { ChatMessages } from "./ChatMessages";
-import { ChatFooter } from "./ChatFooter";
+import { ChatHeader } from "./pageSections/ChatHeader";
+import { ChatMessages } from "./pageSections/ChatMessages";
+import { ChatFooter } from "./pageSections/ChatFooter";
 import { useChat } from "./hooks/useChat";
 import { useChatPageState } from "./hooks/useChatPageState";
 

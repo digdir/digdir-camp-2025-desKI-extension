@@ -5,7 +5,7 @@ import { useImageUpload } from "./useImageUpload";
 import { useLogResults } from "./useLogResults";
 import { useChatMessages } from "./useChatMessages";
 
-export function useChat() {
+export function useChatHandler() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const chatInput = useChatInput();

@@ -1,6 +1,6 @@
-import { DropDownMenu } from "../../components/DropdownMenu";
-import { UtilityBar } from "../../components/UtilityBar";
-import { BackButton } from "../../components/BackButton";
+import { DropDownMenu } from "../../../components/DropdownMenu";
+import { UtilityBar } from "../../../components/UtilityBar";
+import { BackButton } from "../../../components/BackButton";
 
 interface ChatHeaderProps {
   basePath: string;

@@ -1,5 +1,5 @@
-import { ChatBubble } from "../../components/ChatBubble";
-import { ChatMessage } from "./types";
+import { ChatBubble } from "../../../components/ChatBubble";
+import { ChatMessage } from "../types/types";
 import { RefObject } from "react";
 
 interface ChatMessagesProps {
