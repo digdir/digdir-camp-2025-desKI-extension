@@ -8,6 +8,7 @@ import { sendMessageToDeski } from "../api/chatApi";
 import { BackButton } from "../components/BackButton";
 import { ImageUpload } from "../components/ImageUpload";
 import { LogResult } from "../components/LogResult";
+import { parseLogFile } from "../services/ParseLogFile";
 
 export default function ChatPage() {
   const location = useLocation();
@@ -57,10 +58,7 @@ export default function ChatPage() {
         const res = await fetch("/data/log1.txt");
         const text = await res.text();
 
-        allLogs = text
-          .split(/\n\s*{\s*"_index"\s*:/)
-          .filter(Boolean)
-          .map((chunk) => `{ "_index":${chunk.trim().replace(/,$/, "")}`);
+        allLogs = parseLogFile(text);
       } catch (err) {
         console.error("Kunne ikke laste hele loggen:", err);
       }
