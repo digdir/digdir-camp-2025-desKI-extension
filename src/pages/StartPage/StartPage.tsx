@@ -1,6 +1,6 @@
-import { NavigationButton } from '../components/NavigationButton';
-import { Logo } from '../components/Logo';
-import { UtilityBar } from '../components/UtilityBar';
+import { NavigationButton } from '../../components/NavigationButton';
+import { Logo } from '../../components/Logo';
+import { UtilityBar } from '../../components/UtilityBar';
 
 export default function StartPage() {
   return (

@@ -1,10 +1,10 @@
-import Grid from "../components/Grid";
-import { brukerstøtteSolutions } from "../data/brukerstøtteSolutions";
-import { servicedeskSolutions } from "../data/servicedeskSolutions";
+import Grid from "../../components/Grid";
+import { brukerstøtteSolutions } from "../../data/brukerstøtteSolutions";
+import { servicedeskSolutions } from "../../data/servicedeskSolutions";
 import { useLocation } from "react-router-dom";
-import { Logo } from '../components/Logo';
-import { UtilityBar } from '../components/UtilityBar';
-import { BackButton } from '../components/BackButton';
+import { Logo } from '../../components/Logo';
+import { UtilityBar } from '../../components/UtilityBar';
+import { BackButton } from '../../components/BackButton';
 import { Button } from "@digdir/designsystemet-react";
 import { useNavigate } from 'react-router-dom';
 
