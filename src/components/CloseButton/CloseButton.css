@@ -1,0 +1,17 @@
+/* CloseButton.css */
+
+.close-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem; 
+}
+
+.close-button {
+  font-size: 0.875rem; 
+  color: #4b5563;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #000000; 
+}

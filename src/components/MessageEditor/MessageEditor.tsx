@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { TabsIcon, PencilIcon, CheckmarkIcon, XMarkIcon } from "@navikt/aksel-icons";
-import { Button, Tooltip, Textarea } from "@digdir/designsystemet-react";
+import { TabsIcon, CheckmarkIcon } from "@navikt/aksel-icons";
+import { Button, Tooltip } from "@digdir/designsystemet-react";
+import "./MessageEditor.css";
 
 interface MessageEditorProps {
   initialText: string;
 }
 
-export function MessageEditor({ initialText}: MessageEditorProps) {
+export function MessageEditor({ initialText }: MessageEditorProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
     const textarea = document.createElement("textarea");
     textarea.value = initialText;
-    textarea.style.position = "fixed"; // unngå scroll
+    textarea.style.position = "fixed";
     document.body.appendChild(textarea);
     textarea.focus();
     textarea.select();
@@ -25,26 +26,31 @@ export function MessageEditor({ initialText}: MessageEditorProps) {
       } else {
         alert("Kopiering mislyktes.");
       }
-      } catch (err) {
-        alert("Kopiering støttes ikke.");
-        console.error(err);
-      }
-      document.body.removeChild(textarea);
+    } catch (err) {
+      alert("Kopiering støttes ikke.");
+      console.error(err);
+    }
+
+    document.body.removeChild(textarea);
   };
+
   return (
-    <div className="flex gap-1">
+    <div className="message-editor-container">
       <Tooltip content={copied ? "Kopiert!" : "Kopier tekst"} placement="top">
         <Button
           variant="tertiary"
           aria-label={copied ? "Kopiert!" : "Kopier tekst"}
-          className={`p-0 w-6 h-6 min-w-0 min-h-0 rounded ${
-            copied ? "cursor-default opacity-70" : "hover:bg-[var(--ds-color-neutral-surface-hover)]"
-          }`}
+          className={`copy-button ${copied ? "copied" : ""}`}
           onClick={handleCopy}
         >
-          {copied ? <CheckmarkIcon className="w-4 h-4" /> : <TabsIcon className="w-4 h-4" />}
+          {copied ? (
+            <CheckmarkIcon className="icon" />
+          ) : (
+            <TabsIcon className="icon" />
+          )}
         </Button>
       </Tooltip>
     </div>
   );
 }
+

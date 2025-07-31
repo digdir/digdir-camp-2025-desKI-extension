@@ -1,0 +1,19 @@
+/* ColorModeSwitch.css */
+
+.color-mode-button {
+  background-color: transparent;
+  color: var(--ds-color-main-text);
+  padding: 0;
+  font-size: 1.125rem; 
+  border: none;
+  outline: none;
+}
+
+.color-mode-button:hover {
+  background-color: var(--ds-color-neutral-surface-hover);
+  color: var(--ds-color-main-text);
+}
+
+.color-mode-button:focus {
+  outline: none;
+}

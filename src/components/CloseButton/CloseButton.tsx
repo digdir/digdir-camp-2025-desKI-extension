@@ -1,7 +1,8 @@
 import { Button } from '@digdir/designsystemet-react';
+import './CloseButton.css';
 
-export function CloseButton(){
-    const handleClose = () => {
+export function CloseButton() {
+  const handleClose = () => {
     const frame = window.frameElement;
     if (frame && frame.parentNode) {
       frame.parentNode.removeChild(frame);
@@ -9,11 +10,10 @@ export function CloseButton(){
   };
 
   return (
-    <div className="flex justify-end p-2">
-      <Button onClick={handleClose} className="text-sm text-gray-600 hover:text-black">
+    <div className="close-button-container">
+      <Button onClick={handleClose} className="close-button">
         Lukk
       </Button>
     </div>
   );
-
 }

@@ -1,0 +1,65 @@
+/* Grid.css */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.5rem 0.25rem;
+  transform: scale(0.8);
+  transform-origin: top;
+}
+
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Bruk ønsket fargestil fra det andre prosjektet */
+.solutionCard {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2em;
+  border-radius: 8px;
+  background-color: var(--ds-color-brand2-surface-tinted);
+  border: 1px solid var(--ds-color-brand2-border-subtle);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.solutionCard:hover {
+  background-color: var(--ds-color-brand2-surface-hover);
+  border-color: var(--ds-color-brand2-base-default);
+  cursor: pointer;
+}
+
+[data-color-scheme="dark"] .solutionCard {
+  background-color: var(--ds-color-brand3-background-default);
+  border-color: var(--ds-color-brand3-border-subtle);
+  border-width: 0.1rem;
+}
+
+[data-color-scheme="dark"] .solutionCard:hover {
+  background-color: var(--ds-color-brand3-surface-default);
+  border-color: var(--ds-color-brand3-border-subtle);
+}
+
+/* Typografi og layout inne i kortet */
+.grid-card-block {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.grid-card-title {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--ds-color-text-default);
+  word-break: break-word;
+  hyphens: auto;
+}

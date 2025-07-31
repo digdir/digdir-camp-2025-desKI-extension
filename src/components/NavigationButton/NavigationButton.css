@@ -1,0 +1,27 @@
+/* NavigationButton.css */
+
+.navigation-button {
+  width: 100%;
+  color: var(--ds-color-text-default);
+  font-weight: 500;
+  padding: 0.75rem 1rem; 
+  border-radius: 9999px; 
+  background-color: var(--ds-color-brand2-surface-tinted);
+  border: 1px solid var(--ds-color-brand2-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.navigation-button-icon {
+  width: 1.25rem; 
+  height: 1.25rem; 
+}
+
+[data-color-scheme="dark"] .navigation-button {
+  background-color: var(--ds-color-brand3-background-default);
+  border-color: var(--ds-color-brand3-border-subtle);
+  border-width: 0.1rem;
+}
+
