@@ -1,12 +1,12 @@
 import Grid from "../../components/Grid/Grid";
 import { brukerstøtteSolutions } from "../../data/brukerstøtteSolutions";
 import { servicedeskSolutions } from "../../data/servicedeskSolutions";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Logo } from '../../components/Logo';
 import { UtilityBar } from '../../components/UtilityBar/UtilityBar';
 import { BackButton } from '../../components/BackButton/BackButton';
 import { Button } from "@digdir/designsystemet-react";
-import './GridMenu.css';
+import { useNavigate } from 'react-router-dom';
 
 export function GridMenu() {
   const location = useLocation();
