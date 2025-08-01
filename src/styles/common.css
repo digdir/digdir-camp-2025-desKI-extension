@@ -1,6 +1,6 @@
 :root {
   font-family: "Inter", sans-serif;
-  font-feature-settings: "cv05" 1;
+  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,94 +12,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* Fargevariabler */
-  --accent-1: #ffffff;
-  --accent-2: #eef4fa;
-  --accent-3: #ffffff;
-  --accent-4: #ddeaf6;
-  --accent-5: #c7ddf0;
-  --accent-6: #afcee9;
-  --accent-7: #99c0e3;
-  --accent-8: #2a7cc5;
-  --accent-9: #005db1;
-  --accent-10: #005db1;
-  --accent-11: #002c54;
-  --accent-12: #0062BA;
-  --accent-13: #004f96;
-  --accent-14: #003d75;
-  --accent-15: #dbe9f5;
-  --accent-16: #ffffff;
-
-  --brand1-1: #ffffff;
-  --brand1-2: #fef0f1;
-  --brand1-3: #ffffff;
-  --brand1-4: #fde2e3;
-  --brand1-5: #fccfd1;
-  --brand1-6: #fababc;
-  --brand1-7: #f9a5a8;
-  --brand1-8: #cb4f53;
-  --brand1-9: #9e3d40;
-  --brand1-10: #9e3d40;
-  --brand1-11: #4b1d1e;
-  --brand1-12: #F45F63;
-  --brand1-13: #f78588;
-  --brand1-14: #f9a6a8;
-  --brand1-15: #020101;
-  --brand1-16: #000000;
-
-  --brand2-1: #ffffff;
-  --brand2-2: #fbf3df;
-  --brand2-3: #ffffff;
-  --brand2-4: #f8e7c1;
-  --brand2-5: #f3d797;
-  --brand2-6: #edc567;
-  --brand2-7: #e8b43a;
-  --brand2-8: #9a7216;
-  --brand2-9: #775811;
-  --brand2-10: #775811;
-  --brand2-11: #382908;
-  --brand2-12: #E5AA20;
-  --brand2-13: #c9951c;
-  --brand2-14: #af8218;
-  --brand2-15: #2c2006;
-  --brand2-16: #000000;
-
-  --neutral-1: #ffffff;
-  --neutral-2: #f3f4f4;
-  --neutral-3: #ffffff;
-  --neutral-4: #e7e9ea;
-  --neutral-5: #d8dadd;
-  --neutral-6: #c7cacf;
-  --neutral-7: #b8bcc1;
-  --neutral-8: #717a84;
-  --neutral-9: #545e6b;
-  --neutral-10: #545e6b;
-  --neutral-11: #1f2c3d;
-  --neutral-12: #1E2B3C;
-  --neutral-13: #313d4d;
-  --neutral-14: #444f5d;
-  --neutral-15: #babec4;
-  --neutral-16: #ffffff;
-}
-
-.dark {
-  --accent-1: #0c1927;
-  --accent-2: #102033;
-  --accent-3: #142941;
-  --accent-4: #172f4b;
-  --accent-5: #1a3757;
-  --accent-6: #21446d;
-  --accent-7: #285182;
-  --accent-8: #5a84b4;
-  --accent-9: #8eaacb;
-  --accent-10: #8eaacb;
-  --accent-11: #e7edf4;
-  --accent-12: #4c91cf;
-  --accent-13: #6fa6d8;
-  --accent-14: #92bce1;
-  --accent-15: #dbe9f5;
-  --accent-16: #ffffff;
 }
 
 a {
@@ -114,12 +26,14 @@ a:hover {
 
 body {
   font-family: "Inter", sans-serif;
-  font-feature-settings: "cv05" 1;
+  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
+  background-color: var(--ds-color-neutral-background-tinted);
   margin: 0;
+  display: flex;
+  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: var(--ds-color-neutral-background-tinted);
 }
 
 [data-color-scheme="dark"] body {

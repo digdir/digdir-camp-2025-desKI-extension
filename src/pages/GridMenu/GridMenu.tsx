@@ -1,10 +1,10 @@
-import Grid from "../../components/Grid";
+import Grid from "../../components/Grid/Grid";
 import { brukerstøtteSolutions } from "../../data/brukerstøtteSolutions";
 import { servicedeskSolutions } from "../../data/servicedeskSolutions";
 import { useLocation } from "react-router-dom";
 import { Logo } from '../../components/Logo';
-import { UtilityBar } from '../../components/UtilityBar';
-import { BackButton } from '../../components/BackButton';
+import { UtilityBar } from '../../components/UtilityBar/UtilityBar';
+import { BackButton } from '../../components/BackButton/BackButton';
 import { Button } from "@digdir/designsystemet-react";
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,6 @@ export function GridMenu() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Dekod URL og hent basePath
   const pathParts = decodeURIComponent(location.pathname).split("/").filter(Boolean);
   const basePath = pathParts.includes("brukerstøtte")
     ? "brukerstøtte"
@@ -35,21 +34,20 @@ export function GridMenu() {
   const basePathUrl = basePath ? `/${basePath}` : "/";
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen px-4 pt-4 text-center">
-      <div className="w-full flex justify-between items-start mb-4">
-        <BackButton to="/"/>
+    <div className="grid-menu">
+      <div className="grid-menu-header">
+        <BackButton to="/" />
         <UtilityBar />
       </div>
 
-      <div className="flex flex-col items-center mb-8">
-        <Button variant="secondary" onClick={() => navigate(-1)}>
+      <div className="grid-menu-logo">
+        <Button variant="secondary" onClick={() => navigate("/")}>
           <Logo />
         </Button>
-        <span className="text-xs sm:text-sm font-medium text-[var(--ds-color-text-default)] mt-1">
-          {title}
-        </span>
+        <span className="grid-menu-title">{title}</span>
       </div>
-      <div className="max-w-[600px] mx-auto w-full">
+
+      <div className="grid-menu-content">
         <Grid solutions={solutions} basePath={basePathUrl} />
       </div>
     </div>

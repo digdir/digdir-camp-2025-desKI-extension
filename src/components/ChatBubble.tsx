@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MessageEditor } from "./MessageEditor";
+import { MessageEditor } from "./MessageEditor/MessageEditor";
 import { LogResult } from "./LogResult";
 
 type Props = {
