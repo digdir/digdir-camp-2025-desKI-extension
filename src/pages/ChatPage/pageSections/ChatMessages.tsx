@@ -4,7 +4,7 @@ import { RefObject } from "react";
 
 interface ChatMessagesProps {
   messages: ChatMessage[];
-  endRef: RefObject<HTMLDivElement | null>;
+  endRef: RefObject<HTMLDivElement | null>; // Ref for auto-scrolling to latest message
 }
 
 export function ChatMessages({ messages, endRef }: ChatMessagesProps) {
